@@ -69,7 +69,7 @@ class ConnectRetrofit(val context: Context) {
     fun retrofitService(): RetrofitService = retrofit.create(
         RetrofitService::class.java)
     // connect server
-    private val retrofit = Retrofit.Builder().baseUrl("http://192.168.0.8:8080")
+    private val retrofit = Retrofit.Builder().baseUrl(" https://dev.seonuk.shop")
 //        .client(
 //            OkHttpClient.Builder().sslSocketFactory(
 //                getPinnedCertSslSocketFactory(
