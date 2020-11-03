@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".login.AgreementFragment"
+    tools:context=".src.login.AgreementFragment"
     android:background="#ffffff"
     android:clickable="true"
     android:orientation="vertical">
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ToolbarTheme"
-        android:elevation="10dp">
+        android:elevation="3dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,29 +23,170 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="회원가입"
+                android:text="@string/register"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                app:layout_constraintRight_toRightOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/agreement_checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="전체 동의" />
 
-    <Button
-        android:id="@+id/agreement_next_btn"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="5dp"
-        android:text="다음으로"
-        android:textColor="#ffffff"/>
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agree"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"/>
 
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/agreement_checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="전체 동의"
+                android:background="@drawable/layout_agreement"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/agreement_checkBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="배달의민족 이용약관 동의"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <ImageView
+                    android:id="@+id/agreement_term1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/agreement_checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전자금융거래 이용약관 동의"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <ImageView
+                    android:id="@+id/agreement_term2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/agreement_checkBox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="개인정보 수집이용 동의"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <ImageView
+                    android:id="@+id/agreement_term3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/agreement_checkBox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="개인정보 제3자 제공 동의 (선택)"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <ImageView
+                    android:id="@+id/agreement_term4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/agreement_checkBox5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="마케팅 정보 메일, SMS 수신동의 (선택)"
+                android:background="@drawable/layout_agreement" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="141dp"
+            android:layout_height="96dp"
+            android:layout_gravity="top|right"
+            android:src="@drawable/agreement_character"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="30dp"/>
+
+        <Button
+            android:id="@+id/agreement_next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:text="다음으로"
+            android:textStyle="bold"
+            android:textColor="#ffffff"/>
+    </FrameLayout>
 </LinearLayout>

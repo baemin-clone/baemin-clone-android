@@ -6,7 +6,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginPage">
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="20dp"
+    tools:context=".src.login.LoginActivity">
 
     <ImageView
         android:id="@+id/login_close_btn"
@@ -15,7 +18,7 @@
         android:src="@drawable/ic_baseline_close_24"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="10dp"/>
+        android:layout_marginTop="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,19 +30,23 @@
             android:id="@+id/login_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="아이디 또는 이메일" />
+            android:hint="아이디 또는 이메일"
+            android:layout_marginBottom="40dp"/>
         <EditText
             android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="비밀번호"/>
+            android:hint="비밀번호"
+            android:layout_marginBottom="40dp"/>
         <Button
             android:id="@+id/login_submit_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/round_button2"
-            android:text="로그인"
-            android:textColor="#ffffff"/>
+            android:text="@string/login"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="20dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,34 +55,64 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="아이디 찾기"/>
+                android:text="아이디 찾기"
+                android:layout_marginRight="20dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="비밀번호 찾기"/>
+                android:text="|"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="비밀번호 찾기"
+                android:layout_marginLeft="20dp"/>
 
         </LinearLayout>
 
-
-
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="20dp">
-        <TextView
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/login_facebook_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/facebook_btn"/>
+        <ImageView
+            android:id="@+id/login_naver_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/naver_btn"/>
+        <ImageView
+            android:id="@+id/login_apple_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/apple_btn"/>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="혹시 배달의 민족이 처음이신가요?  "/>
-        <TextView
-            android:id="@+id/login_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="회원가입"
-            android:textColor="#2AC1BC"/>
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="혹시 배달의 민족이 처음이신가요?  "/>
+            <TextView
+                android:id="@+id/login_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="회원가입"
+                android:textColor="#2AC1BC"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login.LoginPage"
+        <activity android:name="com.professionalandroid.apps.baemin_clone_android.src.login.LoginActivity"
                 android:screenOrientation="portrait">        </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".src.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

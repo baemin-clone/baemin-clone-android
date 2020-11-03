@@ -7,14 +7,16 @@
     android:background="#ffffff"
     android:clickable="true"
     android:orientation="vertical"
-    tools:context=".login.RegisterFragment">
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    tools:context=".src.login.register.RegisterFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/register_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ToolbarTheme"
-        android:elevation="10dp">
+        android:elevation="3dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -79,25 +81,27 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="닉네임"/>
+            android:text="@string/nickName"
+            android:textColor="#000000"/>
 
         <EditText
             android:id="@+id/register_nicName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="2-10자로 입력해주세요"/>
+            android:hint="@string/nickName_example"/>
         <TextView
             android:id="@+id/register_nicName_caution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_dark"
             android:visibility="invisible"
-            android:text="닉네임을 2-10자로 입력해주세요"/>
+            android:text="@string/nickName_caution"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="비밀번호"/>
+            android:text="비밀번호"
+            android:textColor="#000000"/>
         <EditText
             android:id="@+id/register_password"
             android:layout_width="match_parent"
@@ -115,12 +119,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="생년월일"/>
+            android:text="@string/birth"
+            android:textColor="#000000"/>
         <EditText
             android:id="@+id/register_birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="예) 2000.01.01"
+            android:hint="@string/birth_example"
             android:inputType="date"/>
         <TextView
             android:id="@+id/register_birth_caution"
@@ -128,7 +133,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_dark"
             android:visibility="invisible"
-            android:text="생년월일은 8자리로 입력해주세요 (예) 2000.01.01)"/>
+            android:text="@string/birth_caution"/>
     </LinearLayout>
 
 

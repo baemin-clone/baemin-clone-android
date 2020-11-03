@@ -41,6 +41,17 @@ dependencies {
 
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+
+    // Naver login
+    implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.6'
+    def android_x_version = "1.0.0"
+    implementation "androidx.appcompat:appcompat:$android_x_version"
+    implementation "androidx.legacy:legacy-support-core-utils:$android_x_version"
+    implementation "androidx.browser:browser:$android_x_version"
+    implementation "androidx.legacy:legacy-support-v4:$android_x_version"
+
+
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     testImplementation 'junit:junit:4.12'

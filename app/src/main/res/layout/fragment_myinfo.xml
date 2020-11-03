@@ -1,65 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".MyinfoFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/myinfo_toolbar"
+    tools:context=".MyinfoFragment"
+    android:background="#D9D9D9">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ToolbarTheme"
-        android:elevation="10dp">
-        <LinearLayout
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/myinfo_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:theme="@style/ToolbarTheme"
+            android:elevation="3dp"
+            android:background="#ffffff">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My배민"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/blank_ads"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:id="@+id/myinfo_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="15"
+            android:orientation="horizontal"
+            android:background="#ffffff">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="3"
                 android:layout_height="wrap_content"
-                android:text="My배민"
-                android:textStyle="bold"
+                android:adjustViewBounds="true"
+                android:src="@drawable/myinfo_profile_img"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_height="wrap_content"
+                android:text="로그인해주세요"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:text=">"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/blank_ads"
-        android:scaleType="centerCrop"/>
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:rowCount="2">
 
-    <LinearLayout
-        android:id="@+id/myinfo_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="12"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <ImageView
+                    android:id="@+id/my_info_point"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/my_info_point"
+                    android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/my_info_coupon"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/my_info_coupon"
+                    android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/my_info_present"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/my_info_present"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_row="1"
+                app:layout_column="0">
+                <ImageView
+                    android:id="@+id/my_info_bookmakr"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/my_info_bookmark"
+                    android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/my_info_history"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/my_info_history"
+                    android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/my_info_review"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/my_info_review"
+                    android:adjustViewBounds="true"/>
+
+            </LinearLayout>
+        </androidx.gridlayout.widget.GridLayout>
+
         <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:src="@drawable/myinfo_ads"
             android:adjustViewBounds="true"
-            android:src="@drawable/myinfo_profile_img"
-            android:padding="10dp"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="8"
-            android:layout_height="wrap_content"
-            android:text="로그인해주세요"
-            android:layout_gravity="center_vertical"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text=">"
-            android:layout_gravity="center"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

@@ -6,7 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.professionalandroid.apps.baemin_clone_android.login.LoginPage
+import com.professionalandroid.apps.baemin_clone_android.src.login.LoginActivity
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_myinfo.*
 import kotlinx.android.synthetic.main.fragment_myinfo.view.*
 
@@ -26,7 +27,7 @@ class MyinfoFragment : Fragment() {
         (activity as MainActivity).setSupportActionBar(myinfo_toolbar)
 
         view.myinfo_login.setOnClickListener {
-            val intent = Intent(activity, LoginPage::class.java)
+            val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
         }
 

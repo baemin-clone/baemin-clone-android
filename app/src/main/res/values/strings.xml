@@ -1,5 +1,20 @@
 <resources>
     <string name="app_name">baemin-clone-android</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="loading">로딩중입니다.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agree">어서오세요\n약관동의가 필요해요</string>
+    <string name="register">회원가입</string>
+    <string name="naver_client_id">dT2Rrg9dc8RWwMAUTpwr</string>
+    <string name="naver_client_secret">SI8BiRzry5</string>
+    <string name="naver_client_name">배달의민족clone</string>
+    <string name="nickName">닉네임</string>
+    <string name="nickName_example">닉네임을 2\u002d 10자로 입력해주세요</string>
+    <string name="nickName_caution">2 2\u002d 10자로 입력해주세요</string>
+    <string name="birth">생년월일</string>
+    <string name="birth_example">예) 2000.01.01</string>
+    <string name="birth_caution">생년월일은 8자리로 입력해주세요 (예) 2000.01.01)</string>
+    <string name="login">로그인</string>
+    <string name="delivery"><b>배달</b></string>
+    <string name="visit"><b>포장/방문</b></string>
 </resources>
