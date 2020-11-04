@@ -21,14 +21,12 @@ class ModifyMyinfoService(private val mModifyMyinfoFragment: ModifyMyinfoFragmen
             override fun onFailure(call: Call<WithdrawalResponse>, t: Throwable) {
                 Log.d("test", "실패")
             }
-
             override fun onResponse(
                 call: Call<WithdrawalResponse>,
                 response: Response<WithdrawalResponse>
             ) {
                 if(response.body()!!.code == 1){
                    mModifyMyinfoFragment.deletejwt()
-
                 }
             }
 

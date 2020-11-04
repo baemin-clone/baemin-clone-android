@@ -47,6 +47,7 @@ class RegisterService(private val mRegisterFragment: RegisterFragment) {
             ) {
                 Log.d("서버 반환값", response.body().toString())
                 if(response.body()?.code == 1){
+                    mRegisterFragment.saveJwt(response.body()?.result?.jwt!!)
                     mRegisterFragment.successRegister()
                 }
             }

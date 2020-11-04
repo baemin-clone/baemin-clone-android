@@ -1,5 +1,6 @@
 package com.professionalandroid.apps.baemin_clone_android.src.login.register
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -65,6 +66,14 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
         login_status = true
         val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun saveJwt(jwt: String) {
+        val ss = (activity as LoginActivity).getSharedPreferences("sSharedPreferences", Context.MODE_PRIVATE)
+        ss.edit().apply{
+            putString("TAG", jwt)
+            apply()
+        }
     }
 
 }

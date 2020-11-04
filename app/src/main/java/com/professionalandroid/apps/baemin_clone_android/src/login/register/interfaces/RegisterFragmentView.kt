@@ -3,4 +3,5 @@ package com.professionalandroid.apps.baemin_clone_android.src.login.register.int
 interface RegisterFragmentView {
     fun availableEmail()
     fun successRegister()
+    fun saveJwt(jwt: String)
 }
