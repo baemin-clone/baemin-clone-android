@@ -1,14 +1,13 @@
 package com.professionalandroid.apps.baemin_clone_android.src.login.models
 
-
 data class DefaultResponse(
-    var result: Result?,
-    var isSuccess: Boolean,
-    var code: Int,
-    var message: String
+    val result: Result?,
+    val isSuccess: Boolean,
+    val code: Int,
+    val message: String
 )
 
 data class Result(
-    var jwt: String?,
-    var email: String?
+    val email: String?,
+    val jwt: String?
 )

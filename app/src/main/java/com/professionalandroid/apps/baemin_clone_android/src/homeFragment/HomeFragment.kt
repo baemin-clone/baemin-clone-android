@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayout
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.R
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_address
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
@@ -26,7 +27,7 @@ class HomeFragment : Fragment() {
         val deliveryPage = DeliveryFragment()
         val visitPage = VisitFragment()
         var nowPage = view.home_tab.selectedTabPosition
-
+        view.home_address.text = user_address
 
         val ft = (activity as MainActivity).supportFragmentManager
         ft.beginTransaction().replace(R.id.home_container, deliveryPage).commit()

@@ -27,7 +27,7 @@ class AgreementFragment : Fragment() {
         (activity as LoginActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if(arguments!= null) {
-            val kinds = arguments!!.getString("kinds")
+            val kinds = arguments?.getString("kinds")
 
             view.agreement_checkBox.setOnClickListener {
                 if (it.agreement_checkBox.isChecked) {
@@ -40,7 +40,12 @@ class AgreementFragment : Fragment() {
                                 SocialRegisterFragment()
                             when(kinds) {
                                 "general" -> (activity as LoginActivity).addFragment(registerPage)
-                                "naver" -> (activity as LoginActivity).addFragment(socialregisterPage)
+                                "naver" -> (activity as LoginActivity).addFragment(socialregisterPage.apply {
+                                        arguments = Bundle().apply {
+                                            putString("token", arguments?.getString("token"))
+                                        }
+                                    })
+
                             }
                         }
                     }
@@ -57,7 +62,7 @@ class AgreementFragment : Fragment() {
         return view
     }
 
-    // toolbar의 backbutton 정의
+    // backbtn on tabbar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         (activity as LoginActivity).closeFragemtn(this)
 

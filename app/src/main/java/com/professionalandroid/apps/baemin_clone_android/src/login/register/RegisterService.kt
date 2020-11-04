@@ -23,8 +23,9 @@ class RegisterService(private val mRegisterFragment: RegisterFragment) {
             }
 
             override fun onResponse(call: Call<EmailResponse>, response: Response<EmailResponse>) {
+                Log.d("test", response.toString())
+                Log.d("test", response.body().toString())
                 if (response.body()!!.code == 2) {
-                    Log.d("test", response.body().toString())
                     mRegisterFragment.availableEmail()
                 }
             }
@@ -34,6 +35,7 @@ class RegisterService(private val mRegisterFragment: RegisterFragment) {
 
     // register new ID
     fun registerNewId(data: NewUserInfo){
+        Log.d("전달 값", data.toString())
         mRegisterRetrofitInterface.registerNewId(data).enqueue(object: Callback<DefaultResponse>{
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                 Log.d("test", "실패")
@@ -43,8 +45,8 @@ class RegisterService(private val mRegisterFragment: RegisterFragment) {
                 call: Call<DefaultResponse>,
                 response: Response<DefaultResponse>
             ) {
-                if(response.body()!!.code == 1){
-                    Log.d("test", response.body().toString())
+                Log.d("서버 반환값", response.body().toString())
+                if(response.body()?.code == 1){
                     mRegisterFragment.successRegister()
                 }
             }

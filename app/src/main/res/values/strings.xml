@@ -17,4 +17,7 @@
     <string name="login">로그인</string>
     <string name="delivery"><b>배달</b></string>
     <string name="visit"><b>포장/방문</b></string>
+    <string name="usesphonenumber"><b>휴대폰 인증</b> 주문정보의 연락처로 활용됩니다.</string>
+    <string name="marketing"><b>마케팅 정보 수신동의</b></string>
+    <string name="marketing_detail">이벤트 및 혜택에 대한 정보를 받으실 수 있어요</string>
 </resources>

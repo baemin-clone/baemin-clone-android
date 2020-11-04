@@ -1,22 +1,27 @@
 package com.professionalandroid.apps.baemin_clone_android
 
 data class email(
-    var email: String
+    val email: String
 )
 
 data class NewUserInfo(
-    var email: String,
-    var pwd: String,
-    var nickname: String,
-    var birth: String
+    val email: String,
+    val pwd: String,
+    val nickname: String,
+    val birth: String
 )
 
-
 data class UserIdSet(
-    var email: String,
-    var pwd: String
+    val email: String,
+    val pwd: String
 )
 
 data class socailLoginToken(
-    var accessToken: String
+    val accessToken: String
+)
+
+data class NewSocialUserInfo(
+    val nickname: String,
+    val birth: String,
+    val accessToken: String
 )

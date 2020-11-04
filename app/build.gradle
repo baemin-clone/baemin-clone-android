@@ -51,6 +51,8 @@ dependencies {
     implementation "androidx.browser:browser:$android_x_version"
     implementation "androidx.legacy:legacy-support-v4:$android_x_version"
 
+    //Naver maps api
+    implementation 'com.naver.maps:map-sdk:3.9.0'
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 

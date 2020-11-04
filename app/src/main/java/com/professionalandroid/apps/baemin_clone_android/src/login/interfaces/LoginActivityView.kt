@@ -2,5 +2,6 @@ package com.professionalandroid.apps.baemin_clone_android.src.login.interfaces
 
 interface LoginActivityView {
     fun successLogin()
-    fun isAlreadyRegistered(code: Int)
+    fun isAlreadyRegistered(code: Int, token: String)
+    fun saveJwt(jwt: String)
 }

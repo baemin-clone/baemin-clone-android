@@ -22,10 +22,11 @@ class ApplicationClass : Application() {
     companion object {
 
         // 테스트 서버 주소
-        var BASE_URL = " https://dev.seonuk.shop"
+        var BASE_URL = "https://dev.seonuk.shop"
 
         // 실서버 주소
         //    public static String BASE_URL = "https://template.softsquared.com/";
+
         var sSharedPreferences: SharedPreferences? = null
 
         // SharedPreferences 키 값

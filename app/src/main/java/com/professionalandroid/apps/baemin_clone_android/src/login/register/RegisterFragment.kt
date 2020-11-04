@@ -13,6 +13,8 @@ import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.email
 import com.professionalandroid.apps.baemin_clone_android.src.login.LoginActivity
 import com.professionalandroid.apps.baemin_clone_android.src.login.register.interfaces.RegisterFragmentView
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.login_status
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_status
 import kotlinx.android.synthetic.main.fragment_register.*
 import kotlinx.android.synthetic.main.fragment_register.view.*
 
@@ -50,7 +52,6 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
             registerService.registerNewId(newUser_data)
         }
 
-
         return view
     }
 
@@ -60,8 +61,8 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
     }
 
     override fun successRegister() {
-        MainActivity.user_status = true
-        MainActivity.login_status = true
+        user_status = true
+        login_status = true
         val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
     }

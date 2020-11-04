@@ -3,16 +3,22 @@
     package="com.professionalandroid.apps.baemin_clone_android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
+        android:name=".src.ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="6otyicnqxq" />
         <activity android:name="com.professionalandroid.apps.baemin_clone_android.src.login.LoginActivity"
-                android:screenOrientation="portrait">        </activity>
+                android:screenOrientation="portrait">
+        </activity>
         <activity android:name=".src.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
