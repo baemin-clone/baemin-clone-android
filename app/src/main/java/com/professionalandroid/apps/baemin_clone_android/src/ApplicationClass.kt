@@ -3,7 +3,6 @@ package com.professionalandroid.apps.baemin_clone_android.src
 import android.app.Application
 import android.content.SharedPreferences
 import com.professionalandroid.apps.baemin_clone_android.config.XAccessTokenInterceptor
-import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -53,6 +52,14 @@ class ApplicationClass : Application() {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
             }
+            return retrofit
+        }
+
+        fun NaverRetrofitService(): Retrofit? {
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://naveropenapi.apigw.ntruss.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
             return retrofit
         }
     }

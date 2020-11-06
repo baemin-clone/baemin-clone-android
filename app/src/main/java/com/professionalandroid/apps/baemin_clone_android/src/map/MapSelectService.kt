@@ -17,7 +17,7 @@ class MapSelectService(private val mMapSelectFragmentView: MapSelectFragmentView
     fun getMapList(maplist: MutableList<UserLocation>){
         mMapSelectRetrofitInterface.getMapList(1,10).enqueue(object : Callback<MapResponse>{
             override fun onFailure(call: Call<MapResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("test", "실패")
             }
 
             override fun onResponse(call: Call<MapResponse>, response: Response<MapResponse>) {

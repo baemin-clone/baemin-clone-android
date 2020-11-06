@@ -12,6 +12,9 @@ import com.professionalandroid.apps.baemin_clone_android.NewUserInfo
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.email
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
 import com.professionalandroid.apps.baemin_clone_android.src.login.LoginActivity
 import com.professionalandroid.apps.baemin_clone_android.src.login.register.interfaces.RegisterFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.login_status
@@ -69,9 +72,8 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
     }
 
     override fun saveJwt(jwt: String) {
-        val ss = (activity as LoginActivity).getSharedPreferences("sSharedPreferences", Context.MODE_PRIVATE)
-        ss.edit().apply{
-            putString("TAG", jwt)
+        sSharedPreferences!!.edit().apply{
+            putString(X_ACCESS_TOKEN, jwt)
             apply()
         }
     }

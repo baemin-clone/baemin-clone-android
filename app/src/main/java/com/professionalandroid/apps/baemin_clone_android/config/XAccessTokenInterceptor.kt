@@ -1,5 +1,7 @@
 package com.professionalandroid.apps.baemin_clone_android.config
 
+import android.content.Context
+import android.util.Log
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
 import okhttp3.Interceptor
@@ -13,7 +15,7 @@ class XAccessTokenInterceptor : Interceptor {
         val builder: Request.Builder = chain.request().newBuilder()
         val jwtToken: String? = sSharedPreferences?.getString(X_ACCESS_TOKEN, null)
         if (jwtToken != null) {
-            builder.addHeader("X-ACCESS-TOKEN", jwtToken)
+            builder.addHeader("x-access-token", jwtToken)
         }
         return chain.proceed(builder.build())
     }

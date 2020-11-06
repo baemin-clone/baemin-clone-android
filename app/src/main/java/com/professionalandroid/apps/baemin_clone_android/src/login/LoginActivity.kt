@@ -1,7 +1,6 @@
 package com.professionalandroid.apps.baemin_clone_android.src.login
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +10,8 @@ import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.C
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_status
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.UserIdSet
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
 import com.professionalandroid.apps.baemin_clone_android.src.BaseActivity
 import com.professionalandroid.apps.baemin_clone_android.src.login.interfaces.LoginActivityView
 import kotlinx.android.synthetic.main.activity_login_page.*
@@ -94,11 +95,9 @@ class LoginActivity : BaseActivity(), LoginActivityView {
 
     @SuppressLint("CommitPrefEdits")
     override fun saveJwt(jwt: String) {
-        val ss = getSharedPreferences("sSharedPreferences", Context.MODE_PRIVATE)
-        ss.edit().apply{
-            putString("TAG", jwt)
+        sSharedPreferences!!.edit().apply{
+            putString(X_ACCESS_TOKEN, jwt)
             apply()
         }
-
     }
 }

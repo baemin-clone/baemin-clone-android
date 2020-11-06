@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.professionalandroid.apps.baemin_clone_android.*
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.HomeFragment
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.MyinfoFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,8 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val ss = getSharedPreferences("sSharedPreferences", Context.MODE_PRIVATE)
-        Log.d("test", ss.getString("TAG", "123")!!)
+        Log.d("test", sSharedPreferences?.getString(X_ACCESS_TOKEN, "123")!!)
 
         val homePage =
             HomeFragment()

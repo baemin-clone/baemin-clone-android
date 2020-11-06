@@ -57,7 +57,6 @@ class LoginService(private val mLoginActivityView: LoginActivityView) {
                 Log.d("test", response.body().toString())
                 mLoginActivityView.isAlreadyRegistered(response.body()!!.code, data.accessToken)
             }
-
         })
     }
 

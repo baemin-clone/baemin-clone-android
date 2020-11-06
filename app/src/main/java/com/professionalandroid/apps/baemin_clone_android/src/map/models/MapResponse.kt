@@ -8,7 +8,7 @@ data class MapResponse (
 )
 
 data class Result (
-    val userLocations: List<UserLocation>,
+    val userLocationRows: List<UserLocation>,
     val page: Int,
     val size: Int
 )

@@ -45,6 +45,7 @@ dependencies {
 
     // Naver login
     implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.6'
+    implementation 'androidx.wear:wear:1.0.0'
     def android_x_version = "1.0.0"
     implementation "androidx.appcompat:appcompat:$android_x_version"
     implementation "androidx.legacy:legacy-support-core-utils:$android_x_version"
@@ -52,12 +53,13 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:$android_x_version"
 
     //Naver maps api
-    implementation 'com.naver.maps:map-sdk:3.9.0'
+    implementation 'com.naver.maps:map-sdk:3.10.0'
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    compileOnly 'com.google.android.wearable:wearable:2.6.0'
 
 }
