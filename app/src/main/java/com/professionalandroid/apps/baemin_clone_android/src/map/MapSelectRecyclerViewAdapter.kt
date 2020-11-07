@@ -13,12 +13,14 @@ class MapSelectRecyclerViewAdapter(private val maplist:MutableList<UserLocation>
     RecyclerView.Adapter<MapSelectRecyclerViewAdapter.ViewHolder>(){
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
-        var old_address: TextView? = null
-        var new_address: TextView? = null
+        var address: TextView? = null
+        var road_address: TextView? = null
+        var road_address_guide: TextView? = null
         var idx: Int? = null
         init {
-            old_address = view.old_address
-            new_address = view.new_address
+            address = view.old_address
+            road_address = view.new_address
+            road_address_guide = view.new_address_guide
             idx = null
         }
     }
@@ -33,8 +35,16 @@ class MapSelectRecyclerViewAdapter(private val maplist:MutableList<UserLocation>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.old_address?.text = maplist[position].address
-        holder.new_address?.text = maplist[position].roadAddress
+        holder.address?.text = maplist[position].address
+        if(maplist[position].roadAddress != "") {
+            holder.road_address?.visibility = View.VISIBLE
+            holder.road_address_guide?.visibility = View.VISIBLE
+            holder.road_address?.text = maplist[position].roadAddress
+        }
+        else{
+            holder.road_address?.visibility = View.GONE
+            holder.road_address_guide?.visibility = View.GONE
+        }
         holder.idx = maplist[position].idx
     }
 }

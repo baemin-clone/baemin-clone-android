@@ -17,7 +17,6 @@
     <string name="login">로그인</string>
     <string name="delivery"><b>배달</b></string>
     <string name="visit"><b>포장/방문</b></string>
-    <string name="usesphonenumber"><b>휴대폰 인증</b> 주문정보의 연락처로 활용됩니다.</string>
     <string name="marketing"><b>마케팅 정보 수신동의</b></string>
     <string name="marketing_detail">이벤트 및 혜택에 대한 정보를 받으실 수 있어요</string>
     <string name="title_activity_shoplist">ShoplistActivity</string>
@@ -35,5 +34,7 @@
     <string name="cafe"><b>카페\u00b7도시락</b></string>
     <string name="fastfood"><b>패스트푸드</b></string>
     <string name="franchise"><b>프랜차이즈</b></string>
+    <string name="delivery_order"><b>배달주문</b></string>
+    <string name="visit_order"><b>포장/방문주문</b></string>
 
 </resources>

@@ -1,7 +1,5 @@
 package com.professionalandroid.apps.baemin_clone_android.config
 
-import android.content.Context
-import android.util.Log
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
 import okhttp3.Interceptor

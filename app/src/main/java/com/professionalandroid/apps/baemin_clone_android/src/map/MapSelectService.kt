@@ -22,6 +22,9 @@ class MapSelectService(private val mMapSelectFragmentView: MapSelectFragmentView
 
             override fun onResponse(call: Call<MapResponse>, response: Response<MapResponse>) {
                 Log.d("test", response.body().toString())
+                if(response.body()?.result?.userLocationRows?.isNotEmpty()!!){
+                    mMapSelectFragmentView.addMaptoList(response.body()?.result?.userLocationRows!!)
+                }
             }
 
         })

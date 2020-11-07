@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.map.interfaces.MapSelectFragmentView
@@ -16,12 +18,21 @@ class MapSelectFragment : Fragment(), MapSelectFragmentView {
 
     val mapSelectService = MapSelectService(this)
     val maplist = mutableListOf<UserLocation>()
+    lateinit var mMapSelectRecyclerView: RecyclerView
+    lateinit var mMapSelectRecyclerViewAdapter: MapSelectRecyclerViewAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_map_select, container, false)
+
+        // Connect RecyclerView
+        mMapSelectRecyclerView = view.map_select_recycler_view
+        mMapSelectRecyclerViewAdapter = MapSelectRecyclerViewAdapter(maplist)
+        mMapSelectRecyclerView.layoutManager = LinearLayoutManager(context)
+        mMapSelectRecyclerView.adapter = mMapSelectRecyclerViewAdapter
 
         mapSelectService.getMapList(maplist)
 
@@ -36,6 +47,11 @@ class MapSelectFragment : Fragment(), MapSelectFragmentView {
     override fun onDestroy() {
         super.onDestroy()
         (activity as MainActivity).showBottomeNav()
+    }
+
+    override fun addMaptoList(maplist: List<UserLocation>) {
+        this.maplist.addAll(maplist)
+        mMapSelectRecyclerViewAdapter.notifyDataSetChanged()
     }
 
 }

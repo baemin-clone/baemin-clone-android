@@ -69,6 +69,7 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
         login_status = true
         val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
+        (activity as LoginActivity).finishAffinity()
     }
 
     override fun saveJwt(jwt: String) {

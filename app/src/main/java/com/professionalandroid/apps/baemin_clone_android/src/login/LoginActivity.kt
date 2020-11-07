@@ -70,17 +70,18 @@ class LoginActivity : BaseActivity(), LoginActivityView {
         login_status = true
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
         startActivity(intent)
+        finishAffinity()
     }
 
     override fun isAlreadyRegistered(code: Int, token: String) {
         when(code){
             // Existing User
-            1 -> {
+            7 -> {
                 Log.d("test", "이미 가입된 유저")
                 successLogin()
             }
             // New User
-            200 -> {
+            1 -> {
                 Log.d("test","새로운 유저")
                 val agreementPage = AgreementFragment()
                 addFragment(agreementPage.apply {

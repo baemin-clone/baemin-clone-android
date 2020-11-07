@@ -23,7 +23,11 @@ class SocialRegisterService(private var mSocialRegisterFragmentView: SocialRegis
                 call: Call<SocialResponse>,
                 response: Response<SocialResponse>
             ) {
-                TODO("Not yet implemented")
+                val body = response.body()
+                if(body?.code == 1){
+                    mSocialRegisterFragmentView.savejwt(body.result?.jwt!!)
+                    mSocialRegisterFragmentView.successRegister()
+                }
             }
 
         })

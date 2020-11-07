@@ -1,5 +1,6 @@
 package com.professionalandroid.apps.baemin_clone_android.src.login.socialregister
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,8 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.professionalandroid.apps.baemin_clone_android.NewSocialUserInfo
 import com.professionalandroid.apps.baemin_clone_android.R
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass
+import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
 import com.professionalandroid.apps.baemin_clone_android.src.login.LoginActivity
 import com.professionalandroid.apps.baemin_clone_android.src.login.socialregister.interfaces.SocialRegisterFragmentView
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.login_status
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_status
 import kotlinx.android.synthetic.main.fragment_social_register.view.*
 
 class SocialRegisterFragment : Fragment(), SocialRegisterFragmentView {
@@ -38,6 +44,21 @@ class SocialRegisterFragment : Fragment(), SocialRegisterFragmentView {
             socialRegisterService.registerNewSocialId(data)
         }
         return view
+    }
+
+    override fun savejwt(jwt: String) {
+        sSharedPreferences!!.edit().apply{
+            putString(ApplicationClass.X_ACCESS_TOKEN, jwt)
+            apply()
+        }
+    }
+
+    override fun successRegister() {
+        user_status = true
+        login_status = true
+        val intent = Intent(context, MainActivity::class.java)
+        startActivity(intent)
+        (activity as LoginActivity).finishAffinity()
     }
 
 }

@@ -23,8 +23,6 @@ class LoginService(private val mLoginActivityView: LoginActivityView) {
 
     // general login
     fun login(data: UserIdSet){
-        Log.d("test1", data.toString())
-        Log.d("test", "aa")
         mloginRetrofitInterface.login(data).enqueue(object : Callback<DefaultResponse>{
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                 Log.d("test", "실패")
@@ -34,7 +32,6 @@ class LoginService(private val mLoginActivityView: LoginActivityView) {
                 call: Call<DefaultResponse>,
                 response: Response<DefaultResponse>
             ) {
-                Log.d("test", response.toString())
                 Log.d("test", response.body().toString())
                 if(response.body()?.code == 1){
                     mLoginActivityView.saveJwt(response.body()?.result?.jwt!!)

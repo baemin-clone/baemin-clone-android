@@ -12,7 +12,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/modify_myinfo_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:theme="@style/ToolbarTheme"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
@@ -50,25 +50,30 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="11">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_height="200dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             android:background="#ffffff">
             <ImageView
                 android:id="@+id/modify_myinfo_profile_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/myinfo_profile_img"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/modifymyinfoprofile"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/modify_myinfo_benefits"/>
+                app:layout_constraintBottom_toTopOf="@id/modify_myinfo_profile_img" />
             <LinearLayout
                 android:id="@+id/modify_myinfo_benefits"
                 android:layout_width="match_parent"
@@ -85,17 +90,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="question mark"/>
+                    android:text="ques"/>
             </LinearLayout>
 
             <EditText
                 android:id="@+id/modify_myinfo_nickname"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
+                android:padding="8dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/modify_myinfo_benefits"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/normal_edge"
                 android:hint="닉네임"/>
 
 
@@ -103,28 +110,31 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
+            android:layout_height="250dp"
             android:background="#ffffff"
             android:layout_marginTop="10dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"            >
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp">
 
             <LinearLayout
-                android:id="@+id/modify_myinfo_email"
+                android:id="@+id/modify_myinfo_email_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:weightSum="9"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/modify_myinfo_password">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:text="이메일"
                     android:textColor="#000000"
                     android:textStyle="bold"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/modify_myinfo_email"
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
                     android:layout_height="wrap_content"
                     android:text="gensok@naver.com"/>
             </LinearLayout>
@@ -134,26 +144,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="5"
-                app:layout_constraintTop_toBottomOf="@id/modify_myinfo_email"
+                android:weightSum="9"
+                app:layout_constraintTop_toBottomOf="@id/modify_myinfo_email_layout"
                 app:layout_constraintBottom_toTopOf="@id/modify_myinfo_phone">
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:text="비밀번호"
                     android:textColor="#000000"
                     android:textStyle="bold"/>
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_weight="3"
-                    android:layout_height="wrap_content"
-                    android:hint="10자에서 20자 이내"/>
+                    android:layout_weight="5"
+                    android:layout_height="match_parent"
+                    android:background="#E5E5E5"
+                    android:paddingStart="15dp"
+                    android:gravity="center_vertical"
+                    android:hint="10자에서 20자 이내"
+                    android:textSize="15sp"/>
                 <Button
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="변경" />
+                    android:layout_weight="2"
+                    android:layout_height="40dp"
+                    android:background="#D9D9D9"
+                    android:text="변경"
+                    android:layout_marginStart="5dp"
+                    android:textColor="#ffffff"/>
             </LinearLayout>
 
             <LinearLayout
@@ -163,18 +180,31 @@
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/modify_myinfo_password"
                 app:layout_constraintBottom_toBottomOf="parent">
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/usesphonenumber"
-                    android:textColor="#000000"/>
-
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="휴대폰 인증"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="주문정보의 연락처로 사용됩니다."
+                        android:textSize="11sp"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="4">
                     <TextView
+                        android:id="@+id/modify_myinfo_phone1"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -182,8 +212,9 @@
                         android:textStyle="bold"
                         android:gravity="center"
                         android:background="#E5E5E5"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="2.5dp"/>
                     <TextView
+                        android:id="@+id/modify_myinfo_phone2"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -191,8 +222,9 @@
                         android:textStyle="bold"
                         android:gravity="center"
                         android:background="#E5E5E5"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="2.5dp"/>
                     <TextView
+                        android:id="@+id/modify_myinfo_phone3"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -200,17 +232,17 @@
                         android:textStyle="bold"
                         android:gravity="center"
                         android:background="#E5E5E5"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="2.5dp"/>
 
                     <Button
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:text="재인증"
                         android:textColor="#ffffff"
                         android:gravity="center"
                         android:background="#D9D9D9"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="2.5dp"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -218,8 +250,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
+            android:layout_height="250dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:background="#ffffff">
             <LinearLayout
                 android:id="@+id/modify_myinfo_marketing"
@@ -281,20 +314,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/modify_myinfo_SMS"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp">
 
                 <TextView
                     android:id="@+id/modify_myinfo_withdrawal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="회원탈퇴"
+                    android:text="회원탈퇴  "
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|    "
+                    app:layout_constraintLeft_toLeftOf="@id/modify_myinfo_withdrawal"
+                    app:layout_constraintRight_toRightOf="@id/modify_myinfo_logout"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="20dp"/>
+
                 <TextView
                     android:id="@+id/modify_myinfo_logout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="로그아웃"
+                    android:text="로그아웃    "
                     app:layout_constraintRight_toLeftOf="@id/modify_myinfo_withdrawal"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -304,5 +350,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
-    
+    </ScrollView>
 </LinearLayout>

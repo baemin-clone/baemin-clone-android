@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("test", sSharedPreferences?.getString(X_ACCESS_TOKEN, "123")!!)
+        Log.d("test", sSharedPreferences?.getString(X_ACCESS_TOKEN, "noToken")!!)
 
         val homePage =
             HomeFragment()
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation_bar.visibility = View.GONE
     }
 
-    fun closeFragemtn(fragment: Fragment){
+    fun closeFragment(fragment: Fragment){
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()
         transaction.remove(fragment)
