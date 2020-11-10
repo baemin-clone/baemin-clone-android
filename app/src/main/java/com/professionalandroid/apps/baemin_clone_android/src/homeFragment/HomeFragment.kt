@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.tabs.TabLayout
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.R
@@ -24,6 +25,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
 
         val deliveryPage = DeliveryFragment()
         val visitPage = VisitFragment()

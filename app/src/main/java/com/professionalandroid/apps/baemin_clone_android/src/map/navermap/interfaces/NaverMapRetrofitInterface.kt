@@ -2,9 +2,7 @@ package com.professionalandroid.apps.baemin_clone_android.src.map.navermap.inter
 
 import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.models.NaverMapsResponse
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface NaverMapRetrofitInterface {
     @GET("/map-reversegeocode/v2/gc")

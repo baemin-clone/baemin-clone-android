@@ -1,8 +1,10 @@
 package com.professionalandroid.apps.baemin_clone_android.src.map
 
 import android.view.LayoutInflater
+import android.view.OrientationEventListener
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.R
@@ -12,7 +14,18 @@ import kotlinx.android.synthetic.main.layout_mapselect_item.view.*
 class MapSelectRecyclerViewAdapter(private val maplist:MutableList<UserLocation>):
     RecyclerView.Adapter<MapSelectRecyclerViewAdapter.ViewHolder>(){
 
+    interface OnListItemSelectedInterface{
+        fun onItemDeleted(v: View, position: Int)
+    }
+
+    var mlistener: OnListItemSelectedInterface? = null
+
+    constructor(listener: OnListItemSelectedInterface, maplist: MutableList<UserLocation>): this(maplist){
+        mlistener = listener
+    }
+
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
+        val parentview = view
         var address: TextView? = null
         var road_address: TextView? = null
         var road_address_guide: TextView? = null
@@ -22,7 +35,11 @@ class MapSelectRecyclerViewAdapter(private val maplist:MutableList<UserLocation>
             road_address = view.new_address
             road_address_guide = view.new_address_guide
             idx = null
+            parentview.delete_btn.setOnClickListener {
+                mlistener?.onItemDeleted(view, adapterPosition)
+            }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

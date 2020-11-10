@@ -19,22 +19,14 @@
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         android:elevation="1dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/register"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
 
@@ -62,14 +54,16 @@
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/agreement_checkBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="전체 동의"
-                android:background="@drawable/layout_agreement"/>
+                android:background="@drawable/layout_agreement" />
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/agreement_checkBox1"
@@ -94,7 +88,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/agreement_checkBox2"
@@ -119,7 +114,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/agreement_checkBox3"
@@ -144,7 +140,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/agreement_checkBox4"
@@ -169,20 +166,48 @@
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/agreement_checkBox5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:text="마케팅 정보 메일, SMS 수신동의 (선택)"
-                android:background="@drawable/layout_agreement" />
+                android:background="@drawable/layout_agreement"
+                android:layout_marginTop="10dp"/>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/agreement_checkBox6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="본인은 만 14세 이상입니다."
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/agreement_checkBox6"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:text="@string/agreement"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
+
+
+
 
         <ImageView
             android:layout_width="141dp"
             android:layout_height="96dp"
             android:layout_gravity="top|right"
             android:src="@drawable/agreement_character"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="30dp"/>
+            android:layout_marginTop="70dp"/>
 
         <Button
             android:id="@+id/agreement_next_btn"

@@ -25,3 +25,16 @@ data class NewSocialUserInfo(
     val birth: String,
     val accessToken: String
 )
+
+data class NowAddress(
+    val roadAddress: String?,
+    val address: String,
+    val longitude: Double,
+    val latitude: Double
+)
+
+data class ShoppingItem(
+    val menuidx: Int,
+    val menuNum: Int,
+    val optionArray: MutableList<Int?>
+)

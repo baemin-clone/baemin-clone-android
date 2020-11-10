@@ -43,6 +43,7 @@ class LoginService(private val mLoginActivityView: LoginActivityView) {
 
     // pass on token to server from naver
     fun passOnToken(data: socailLoginToken){
+        Log.d("test", "test")
         mloginRetrofitInterface.socialLogin(data).enqueue(object : Callback<DefaultResponse>{
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                 Log.d("test", "실패")
@@ -51,8 +52,8 @@ class LoginService(private val mLoginActivityView: LoginActivityView) {
                 call: Call<DefaultResponse>,
                 response: Response<DefaultResponse>
             ) {
-                Log.d("test", response.body().toString())
-                mLoginActivityView.isAlreadyRegistered(response.body()!!.code, data.accessToken)
+                Log.d("naverLogin", response.body().toString())
+                mLoginActivityView.isAlreadyRegistered(response.body()!!.code, data.accessToken, response.body()?.result?.jwt!!)
             }
         })
     }
@@ -81,6 +82,8 @@ class LoginService(private val mLoginActivityView: LoginActivityView) {
                         Log.i("LoginData", "expiresAt : $expiresAt")
                         Log.i("LoginData", "tokenType : $tokenType")
 
+                        Log.d("test", "navertest")
+                        Log.d("test", accessToken.toString())
                         // pass on accessToken to server
                         val data = socailLoginToken(accessToken.toString())
                         passOnToken(data)

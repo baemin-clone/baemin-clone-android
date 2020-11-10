@@ -31,10 +31,13 @@
     <string name="night"><b>야식</b></string>
     <string name="soup"><b>찜\u00b7탕</b></string>
     <string name="dosirok"><b>도시락</b></string>
-    <string name="cafe"><b>카페\u00b7도시락</b></string>
+    <string name="cafe"><b>카페\u00b7디저트</b></string>
     <string name="fastfood"><b>패스트푸드</b></string>
     <string name="franchise"><b>프랜차이즈</b></string>
     <string name="delivery_order"><b>배달주문</b></string>
     <string name="visit_order"><b>포장/방문주문</b></string>
-
+    <string name="menu"><b>메뉴</b></string>
+    <string name="information"><b>정보</b></string>
+    <string name="review"><b>리뷰</b></string>
+    <string name="agreement">개인정보호법에 의해 만 14세 이상부터 배민서비스 이용이 가능합니다. 첫 주문시 본인인증을 받고있으며 만 14세 미만인 경우 계정정보가 삭제됩니다.</string>
 </resources>

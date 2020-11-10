@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.layout_shoplist_item.view.*
 
 class ShoplistViewObjectRecyclerViewAdapter(): RecyclerView.Adapter<ShoplistViewObjectRecyclerViewAdapter.ViewHolder>() {
 
-    lateinit var context:Context
+    lateinit var mcontext:Context
     lateinit var shops:MutableList<Result>
     lateinit var onLoadMoreListener: OnLoadMoreListener
     lateinit var linearLayoutManager: LinearLayoutManager
@@ -25,11 +25,11 @@ class ShoplistViewObjectRecyclerViewAdapter(): RecyclerView.Adapter<ShoplistView
     private val VIEW_ITEM = 1
     private val VIEW_PROG = 0
 
-    constructor(shoplist: MutableList<Result>, onLoadMoreListener: OnLoadMoreListener):this(){
+    constructor(shoplist: MutableList<Result>, onLoadMoreListener: OnLoadMoreListener, context: Context):this(){
         this.onLoadMoreListener = onLoadMoreListener
         shops = shoplist
+        mcontext = context
     }
-
 
     var isMoreLoading = false
     var visibleThreshold = 1
@@ -38,8 +38,9 @@ class ShoplistViewObjectRecyclerViewAdapter(): RecyclerView.Adapter<ShoplistView
     var totalItemCount = 0
     var lastVisibleItem = 0
 
-    public interface OnLoadMoreListener{
+    interface OnLoadMoreListener{
         fun onLoadMore()
+        fun onItemSeledted(v:View, position: Int)
     }
 
     public fun setRecyclerView(view:RecyclerView){
@@ -83,7 +84,7 @@ class ShoplistViewObjectRecyclerViewAdapter(): RecyclerView.Adapter<ShoplistView
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Glide.with(context)
+        Glide.with(mcontext)
             .load(shops[position].logo)
             .centerCrop()
             .into(holder.shop_img!!)
@@ -94,10 +95,12 @@ class ShoplistViewObjectRecyclerViewAdapter(): RecyclerView.Adapter<ShoplistView
         holder.shop_delivery_time?.text = shops[position].deliveryTIME
         holder.shop_min_order?.text = shops[position].minOrderAmount
         holder.shop_tip?.text = shops[position].tip
-
+        holder.storeIdx = shops[position].storeIdx
     }
 
     inner class ViewHolder(view: View?): RecyclerView.ViewHolder(view!!){
+        var parentview = view
+        var storeIdx: Int? = null
         var shop_img: RoundedImageView? = null
         var shop_title: TextView? = null
         var shop_star: TextView? = null
@@ -116,6 +119,10 @@ class ShoplistViewObjectRecyclerViewAdapter(): RecyclerView.Adapter<ShoplistView
             shop_delivery_time = view?.shop_delivery_time
             shop_min_order = view?.shop_min_order
             shop_tip = view?.shop_tip
+            parentview?.setOnClickListener {
+                onLoadMoreListener.onItemSeledted(view!!, adapterPosition)
+            }
+            storeIdx = 0
         }
 
     }

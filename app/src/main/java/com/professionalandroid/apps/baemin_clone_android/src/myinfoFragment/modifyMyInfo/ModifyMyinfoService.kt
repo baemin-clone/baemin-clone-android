@@ -29,6 +29,8 @@ class ModifyMyinfoService(private val mModifyMyinfoFragmentView: ModifyMyinfoFra
             ) {
                 Log.d("test", response.body().toString())
                 if(response.body()!!.code == 1){
+                    user_status = false
+                    login_status = true
                    mModifyMyinfoFragmentView.deletejwt()
                 }
             }

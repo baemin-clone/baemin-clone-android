@@ -1,10 +1,13 @@
 package com.professionalandroid.apps.baemin_clone_android.src.map.navermap
 
 import android.util.Log
+import com.professionalandroid.apps.baemin_clone_android.NowAddress
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass
 import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.interfaces.NaverMapFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.interfaces.NaverMapRetrofitInterface
+import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.additional.interfaces.NowAddressRetrofitInterface
 import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.models.NaverMapsResponse
+import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.additional.models.NowAddressResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -13,6 +16,7 @@ class NavermapServiece(private val mNaverMapFragmentView: NaverMapFragmentView) 
 
     val mNaverMapRetrofitInterface: NaverMapRetrofitInterface =
         ApplicationClass.NaverRetrofitService()!!.create(NaverMapRetrofitInterface::class.java)
+
 
     // Reverse Geocoding
     fun reverse_geocoding(header1: String, header2: String, coords: String, output: String, orders: String){
@@ -51,4 +55,8 @@ class NavermapServiece(private val mNaverMapFragmentView: NaverMapFragmentView) 
 
         })
     }
+
+
+
+
 }

@@ -1,6 +1,7 @@
 package com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistViewObject
 
 import android.content.ClipData.Item
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,13 +26,18 @@ class ShoplistViewObjectFragment : Fragment(), ShoplistViewObjectFragmentView, S
     private lateinit var shoplistViewObjectRecyclerViewAdapter: ShoplistViewObjectRecyclerViewAdapter
 
     private val shoplist = mutableListOf<Result>()
-    var category: String? = null
+    lateinit var category: String
     var order: String = "상관없음"
     var minAmount: Int? = -1
     var tip: Int? = -1
     var star: Double? = -1.0
 
     val mShoplistViewObjectService = ShoplistViewObjectService(this)
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        shoplistViewObjectRecyclerViewAdapter = ShoplistViewObjectRecyclerViewAdapter(shoplist, this, context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,30 +46,21 @@ class ShoplistViewObjectFragment : Fragment(), ShoplistViewObjectFragmentView, S
     ): View {
         val view = inflater.inflate(R.layout.fragment_shoplist_view_object, container, false)
         mRecyclerView = view.shoplist_recyclerview
-        shoplistViewObjectRecyclerViewAdapter = ShoplistViewObjectRecyclerViewAdapter(shoplist, this)
         mRecyclerView.layoutManager = LinearLayoutManager(context)
+        shoplistViewObjectRecyclerViewAdapter.setRecyclerView(mRecyclerView)
+        shoplistViewObjectRecyclerViewAdapter.linearLayoutManager = LinearLayoutManager(context)
         mRecyclerView.adapter = shoplistViewObjectRecyclerViewAdapter
-
-        //temp
-        view.temp1.setOnClickListener {
-            val shopDetailPage = ShopDetailFragment()
-            (activity as ShoplistActivity).addFragment(shopDetailPage)
-        }
-
+        category = arguments?.getString("kind")!!
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        arguments?.takeIf { it.containsKey("ARG_OBJECT") }?.apply {
-            val textView: TextView = view.textview
-            textView.text = getString("ARG_OBJECT")
-        }
-        loadPosts("한식")
+        loadPosts(category)
     }
 
     private fun loadPosts(category: String){
-        mShoplistViewObjectService.getmoreShoplist(category!!, order, minAmount, tip, star, getPage(), size)
+        mShoplistViewObjectService.getmoreShoplist(category, order, minAmount, tip, star, getPage(), size)
     }
 
     private fun getPage(): Int {
@@ -87,7 +84,16 @@ class ShoplistViewObjectFragment : Fragment(), ShoplistViewObjectFragmentView, S
 
     override fun onLoadMore() {
         mShoplistViewObjectService.getmoreShoplist(category!!, order, minAmount, tip, star, getPage(), size)
+    }
 
+    override fun onItemSeledted(v: View, position: Int) {
+        val viewHolder = mRecyclerView.findViewHolderForAdapterPosition(position) as ShoplistViewObjectRecyclerViewAdapter.ViewHolder
+        val shopDetailPage = ShopDetailFragment().apply {
+            arguments = Bundle().apply {
+                putInt("shopidx", viewHolder.storeIdx!!)
+            }
+        }
+        (activity as ShoplistActivity).addFragment(shopDetailPage)
     }
 
 }

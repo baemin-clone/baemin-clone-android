@@ -24,6 +24,8 @@ class SocialRegisterService(private var mSocialRegisterFragmentView: SocialRegis
                 response: Response<SocialResponse>
             ) {
                 val body = response.body()
+                Log.d("test", data.toString())
+                Log.d("test", body.toString())
                 if(body?.code == 1){
                     mSocialRegisterFragmentView.savejwt(body.result?.jwt!!)
                     mSocialRegisterFragmentView.successRegister()

@@ -41,10 +41,9 @@ class ShoplistViewObjectService(private val mShoplistViewObjectFragmentView: Sho
             ) {
                 val body = response.body()
                 val templist = body?.result
-                Log.d("test", templist.toString())
+                Log.d("test", body.toString())
                 mShoplistViewObjectFragmentView.loadmore(templist)
             }
-
         })
 
     }

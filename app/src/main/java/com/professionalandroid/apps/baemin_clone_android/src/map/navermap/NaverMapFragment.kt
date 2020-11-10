@@ -11,7 +11,11 @@ import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
+import com.professionalandroid.apps.baemin_clone_android.NowAddress
 import com.professionalandroid.apps.baemin_clone_android.R
+import com.professionalandroid.apps.baemin_clone_android.src.GpsTracker
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
+import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.additional.AdditionalAddressFragment
 import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.interfaces.NaverMapFragmentView
 import kotlinx.android.synthetic.main.fragment_naver_map.*
 import kotlinx.android.synthetic.main.fragment_naver_map.view.*
@@ -22,7 +26,7 @@ class NaverMapFragment : Fragment(), NaverMapFragmentView, OnMapReadyCallback {
     var addr = arrayOf("", "")
     var naverMap: NaverMap? = null
     val navermapService = NavermapServiece(this)
-    var temp = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -36,11 +40,7 @@ class NaverMapFragment : Fragment(), NaverMapFragmentView, OnMapReadyCallback {
 
         val marker1 = Marker()
         setMarker(marker1, 33.2712, 126.5354, R.drawable.marker, 0);
-        view.naver_map_marker.setOnClickListener {
-            Toast.makeText(context, "마커1 클릭", Toast.LENGTH_SHORT).show();
-            Log.d("test", naverMap?.cameraPosition?.target?.latitude.toString())
-            Log.d("test", naverMap?.cameraPosition?.target?.longitude.toString())
-        }
+
 
         val fm = childFragmentManager
         val mapFragment = fm.findFragmentById(R.id.naver_map) as MapFragment?
@@ -61,6 +61,7 @@ class NaverMapFragment : Fragment(), NaverMapFragmentView, OnMapReadyCallback {
                 view.naver_map_address.text = addr[1]
             }
         }
+
         return view
     }
 
@@ -90,9 +91,15 @@ class NaverMapFragment : Fragment(), NaverMapFragmentView, OnMapReadyCallback {
         this.naverMap = naverMap
         this.naverMap?.mapType = NaverMap.MapType.Basic
 
+        val now_location = GpsTracker(context!!)
+        val latitude = now_location.latitude
+        val longitude = now_location.longitude
+
+        Log.d("test", longitude.toString() + latitude.toString())
+
         // first camera location
         val cameraPosition = CameraPosition(
-            LatLng(33.38, 126.55),  // 위치 지정
+            LatLng(latitude, longitude),  // 위치 지정
             9.0 // 줌 레벨
         )
         this.naverMap?.cameraPosition = cameraPosition
@@ -116,12 +123,26 @@ class NaverMapFragment : Fragment(), NaverMapFragmentView, OnMapReadyCallback {
             naver_map_address.text = "위치 이동중"
             naver_map_change.visibility = View.GONE
             naver_map_submit_btn.setBackgroundResource(R.drawable.round_button)
+            naver_map_submit_btn.setOnClickListener {  }
         }
         else if (addr[1] == ""){   // addr exist but roadaddr is empty
             isAddr = true
             naver_map_change.visibility = View.GONE
             naver_map_address.text = addr[0]
             naver_map_submit_btn.setBackgroundResource(R.drawable.round_button2)
+            naver_map_submit_btn.setOnClickListener {
+                val additionalAddressPage = AdditionalAddressFragment().apply {
+                    arguments = Bundle().apply {
+                        putString("roadaddr", addr[1])
+                        putString("addr", addr[0])
+                        putDouble("longitude", naverMap?.cameraPosition?.target?.longitude!!)
+                        putDouble("latitude", naverMap?.cameraPosition?.target?.latitude!!)
+                        putBoolean("isAddr", isAddr)
+                    }
+                }
+                naver_map_submit_btn.visibility = View.GONE
+                (activity as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.naver_map_fragment, additionalAddressPage).commit()
+            }
         }
         else if(addr[0] != "" && addr[1] != ""){    // addr and roadaddr exist
             naver_map_change.visibility = View.VISIBLE
@@ -131,6 +152,19 @@ class NaverMapFragment : Fragment(), NaverMapFragmentView, OnMapReadyCallback {
                 naver_map_address.text = addr[1]
             }
             naver_map_submit_btn.setBackgroundResource(R.drawable.round_button2)
+            naver_map_submit_btn.setOnClickListener {
+                val additionalAddressPage = AdditionalAddressFragment().apply {
+                    arguments = Bundle().apply {
+                        putString("roadaddr", addr[1])
+                        putString("addr", addr[0])
+                        putDouble("longitude", naverMap?.cameraPosition?.target?.longitude!!)
+                        putDouble("latitude", naverMap?.cameraPosition?.target?.latitude!!)
+                        putBoolean("isAddr", isAddr)
+                    }
+                }
+                naver_map_submit_btn.visibility = View.GONE
+                (activity as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.naver_map_fragment, additionalAddressPage).commit()
+            }
         }
     }
 

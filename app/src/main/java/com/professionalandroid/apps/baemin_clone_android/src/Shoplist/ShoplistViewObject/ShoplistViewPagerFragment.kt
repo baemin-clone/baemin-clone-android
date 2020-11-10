@@ -27,7 +27,7 @@ class ShoplistViewPagerFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         val tabLayoutTextArray =
-            mutableListOf<String>(
+            listOf<String>(
                 getString(R.string.korea),
                 getString(R.string.dduck),
                 getString(R.string.japan),
@@ -40,13 +40,18 @@ class ShoplistViewPagerFragment() : Fragment() {
                 getString(R.string.soup),
                 getString(R.string.dosirok),
                 getString(R.string.cafe),
-                getString(R.string.fastfood))
+                getString(R.string.fastfood),
+                getString(R.string.franchise))
+
+        val position = arguments?.getInt("kind", -1)
 
         shoplistviewpagerAdapter =
             ShoplistViewpagerAdapter(
                 tabLayoutTextArray,
+                position!!,
                 this
             )
+
         viewPager = view.shoplist_viewpager
         viewPager.adapter = shoplistviewpagerAdapter
 

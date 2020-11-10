@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:background="#ffffff"
+    tools:context=".src.map.navermap.additional.AdditionalAddressFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="13dp">
+        <TextView
+            android:id="@+id/additional_old_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지번 주소"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/additional_new_address_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="도로명"
+            android:textSize="13sp"
+            android:background="@drawable/normal_edge"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/additional_old_address"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/additional_new_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="도로명 주소"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@id/additional_new_address_guide"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/additional_old_address"
+            android:layout_marginStart="5dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/additional_address"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="상세주소를 입력하세요(건물명, 동/호수 등)"
+        android:textSize="15dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        android:padding="8dp"
+        android:background="@drawable/normal_edge"/>
+
+    <Button
+        android:id="@+id/additional_submit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button2"
+        android:layout_margin="13dp"
+        android:layout_gravity="bottom"
+        android:text="완료"
+        android:textColor="#ffffff"
+        android:textStyle="bold"/>
+
+
+</LinearLayout>
+

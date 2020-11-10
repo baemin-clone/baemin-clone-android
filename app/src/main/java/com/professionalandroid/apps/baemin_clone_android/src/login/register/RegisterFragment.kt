@@ -1,6 +1,5 @@
 package com.professionalandroid.apps.baemin_clone_android.src.login.register
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +11,6 @@ import com.professionalandroid.apps.baemin_clone_android.NewUserInfo
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.email
-import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
 import com.professionalandroid.apps.baemin_clone_android.src.login.LoginActivity
@@ -26,7 +24,6 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -35,8 +32,8 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
     ): View? {
         val view =  inflater.inflate(R.layout.fragment_register, container, false)
         (activity as LoginActivity).setSupportActionBar(view.register_toolbar)
+        (activity as LoginActivity).supportActionBar?.setDisplayShowTitleEnabled(false);
         (activity as LoginActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         val registerService = RegisterService(this)
 
         view.register_check_duplicate_btn.setOnClickListener {
@@ -55,7 +52,6 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
                 )
             registerService.registerNewId(newUser_data)
         }
-
         return view
     }
 

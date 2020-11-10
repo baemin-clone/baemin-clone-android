@@ -22,7 +22,7 @@
             android:layout_height="30dp"
             android:src="@drawable/ic_baseline_close_24"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="20dp"/>
 
         <TextView
             android:id="@+id/map_select_guide"
@@ -30,7 +30,6 @@
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:text="지번, 도로명, 건물명을\n입력하세요"
-            android:textStyle="bold"
             android:textSize="25sp"
             android:layout_marginBottom="15dp"/>
 
@@ -48,7 +47,8 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="10dp"
                 android:hint="예) 배민동 12-3 또는 배민아파트"
-                android:padding="5dp"
+                android:textSize="15dp"
+                android:paddingStart="15dp"
                 android:background="#E5E5E5"/>
 
             <ImageView
@@ -79,14 +79,15 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:gravity="center_vertical"
         android:text="최근 주소"
+        android:textSize="17dp"
         android:textColor="#000000"
         android:textStyle="bold"
         android:background="#ffffff"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"/>
+        android:paddingStart="13dp"
+        android:layout_marginTop="15dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/map_select_recycler_view"

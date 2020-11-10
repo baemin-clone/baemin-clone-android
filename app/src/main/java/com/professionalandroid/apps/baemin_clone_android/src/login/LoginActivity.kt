@@ -25,6 +25,9 @@ class LoginActivity : BaseActivity(), LoginActivityView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
 
+        login_id.text.clear()
+        login_password.text.clear()
+
         login_register.setOnClickListener {
             val agreementPage = AgreementFragment()
             addFragment(agreementPage.apply {
@@ -73,23 +76,24 @@ class LoginActivity : BaseActivity(), LoginActivityView {
         finishAffinity()
     }
 
-    override fun isAlreadyRegistered(code: Int, token: String) {
+    override fun isAlreadyRegistered(code: Int, token: String, jwt: String) {
         when(code){
             // Existing User
-            7 -> {
+            1 -> {
                 Log.d("test", "이미 가입된 유저")
+                saveJwt(jwt)
                 successLogin()
             }
             // New User
-            1 -> {
+            8 -> {
                 Log.d("test","새로운 유저")
-                val agreementPage = AgreementFragment()
-                addFragment(agreementPage.apply {
+                val agreementPage = AgreementFragment().apply {
                     arguments = Bundle().apply {
                         putString("kinds", "naver")
                         putString("token", token)
                     }
-                })
+                }
+                addFragment(agreementPage)
             }
         }
     }

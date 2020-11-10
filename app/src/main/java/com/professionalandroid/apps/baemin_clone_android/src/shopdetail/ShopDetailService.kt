@@ -26,7 +26,7 @@ class ShopDetailService (val mShopDetailFragmentView: ShopDetailFragmentView){
                 val body = response.body()
                 Log.d("test", body.toString())
                 if (body?.code == 200) {
-                    mShopDetailFragmentView.shopDetail(body?.result)
+                    mShopDetailFragmentView.shopDetail(body.result)
                 }
             }
 

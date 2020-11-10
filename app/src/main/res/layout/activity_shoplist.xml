@@ -15,36 +15,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/home_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:theme="@style/ToolbarTheme"
-        android:contentInsetLeft="0dp"
-        android:contentInsetStart="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        android:elevation="1dp"
-        android:background="#ffffff"
-        android:layout_gravity="top">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/shoplist_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="50dp"
+            android:theme="@style/ToolbarTheme"
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:background="#ffffff"
+            android:layout_gravity="top">
+
             <TextView
                 android:id="@+id/shoplist_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="음식종류"
                 android:textStyle="bold"
-                android:layout_gravity="center"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.appcompat.widget.Toolbar>
+                android:layout_gravity="center"/>
+
+        </androidx.appcompat.widget.Toolbar>
 
     <HorizontalScrollView
         android:layout_width="wrap_content"

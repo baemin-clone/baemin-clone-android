@@ -1,10 +1,10 @@
 package com.professionalandroid.apps.baemin_clone_android.src.map
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.R
@@ -14,7 +14,7 @@ import com.professionalandroid.apps.baemin_clone_android.src.map.models.UserLoca
 import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.NaverMapFragment
 import kotlinx.android.synthetic.main.fragment_map_select.view.*
 
-class MapSelectFragment : Fragment(), MapSelectFragmentView {
+class MapSelectFragment : Fragment(), MapSelectFragmentView, MapSelectRecyclerViewAdapter.OnListItemSelectedInterface {
 
     val mapSelectService = MapSelectService(this)
     val maplist = mutableListOf<UserLocation>()
@@ -30,7 +30,7 @@ class MapSelectFragment : Fragment(), MapSelectFragmentView {
 
         // Connect RecyclerView
         mMapSelectRecyclerView = view.map_select_recycler_view
-        mMapSelectRecyclerViewAdapter = MapSelectRecyclerViewAdapter(maplist)
+        mMapSelectRecyclerViewAdapter = MapSelectRecyclerViewAdapter(this, maplist)
         mMapSelectRecyclerView.layoutManager = LinearLayoutManager(context)
         mMapSelectRecyclerView.adapter = mMapSelectRecyclerViewAdapter
 
@@ -53,5 +53,18 @@ class MapSelectFragment : Fragment(), MapSelectFragmentView {
         this.maplist.addAll(maplist)
         mMapSelectRecyclerViewAdapter.notifyDataSetChanged()
     }
+
+    override fun onItemDeleted(v: View, position: Int) {
+        val viewHolder = mMapSelectRecyclerView.findViewHolderForAdapterPosition(position) as MapSelectRecyclerViewAdapter.ViewHolder
+        for(i in maplist.indices){
+            if(maplist[i].idx == viewHolder.idx){
+                mapSelectService.deleteMap(viewHolder.idx!!)
+                maplist.removeAt(i)
+                break
+            }
+        }
+        mMapSelectRecyclerViewAdapter.notifyDataSetChanged()
+    }
+
 
 }

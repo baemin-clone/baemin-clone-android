@@ -6,28 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.professionalandroid.apps.baemin_clone_android.R
+import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_visit.interfaces.ShopDetailVisitFragmentView
+import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_visit.models.Result
+import kotlinx.android.synthetic.main.fragment_shop_detail_visit.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ShopDetailVisitFragment : Fragment(), ShopDetailVisitFragmentView {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ShopDetailVisitFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ShopDetailVisitFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    val mShopDetailVisitService = ShopDetailVisitService(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -35,26 +24,20 @@ class ShopDetailVisitFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shop_detail_visit, container, false)
+        val view = inflater.inflate(R.layout.fragment_shop_detail_visit, container, false)
+
+        val shopidx = arguments?.getInt("shopidx") ?: -1
+
+        mShopDetailVisitService.shopDetailVisit(shopidx)
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ShopDetailVisitFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ShopDetailVisitFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun shopDetailVisit(result: Result?) {
+        shop_detail_visit_min_price.text = result?.minOrderAmount
+        shop_detail_visit_use.text = result?.use
+        shop_detail_visit_time.text = result?.cookingTime
+        shop_detail_visit_address.text = result?.address
+        shop_detail_visit_payment.text = result?.payment
     }
+
 }

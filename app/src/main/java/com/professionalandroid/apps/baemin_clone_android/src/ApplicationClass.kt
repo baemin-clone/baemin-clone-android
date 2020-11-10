@@ -2,6 +2,10 @@ package com.professionalandroid.apps.baemin_clone_android.src
 
 import android.app.Application
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.professionalandroid.apps.baemin_clone_android.config.XAccessTokenInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -9,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+
 
 class ApplicationClass : Application() {
     override fun onCreate() {
@@ -63,4 +68,6 @@ class ApplicationClass : Application() {
             return retrofit
         }
     }
+
+
 }
