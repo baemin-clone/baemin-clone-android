@@ -17,7 +17,6 @@ class ShopDetailOtherSubRecyclerViewAdapter(): RecyclerView.Adapter<ShopDetailOt
         fun onSubItemSelected(view: View, position: Int)
     }
 
-
     var otherSubMenu: List<Content>? = null
     lateinit var mcontext: Context
     lateinit var mlistener: SubItemSelectedInterface

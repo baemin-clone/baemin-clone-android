@@ -36,5 +36,28 @@ data class NowAddress(
 data class ShoppingItem(
     val menuidx: Int,
     val menuNum: Int,
-    val optionArray: MutableList<Int?>
+    val optionArray: MutableList<OptionArray>
+)
+
+data class OptionArray (
+    val optionGroupIdx: Int,
+    val options: MutableList<Int>
+)
+
+data class ShoppingCart (
+    val storeIdx: Int,
+    val menuIdx: Int,
+    val optionArray: List<OptionArray>
+)
+
+data class Order(
+    val storeIdx: Int,
+    val method: String,
+    val menu: List<MenuItem>
+)
+
+data class MenuItem(
+    val menuIdx: Int,
+    val menuNum: Int,
+    val optionIdxArray: List<Int>
 )

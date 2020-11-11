@@ -1,20 +1,35 @@
 package com.professionalandroid.apps.baemin_clone_android.src.main
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.ContentResolver
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.location.LocationManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.webkit.MimeTypeMap
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.NonNull
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.professionalandroid.apps.baemin_clone_android.BookmarkFragment
 import com.professionalandroid.apps.baemin_clone_android.HistoryFragment
@@ -26,15 +41,28 @@ import com.professionalandroid.apps.baemin_clone_android.src.GpsTracker
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.HomeFragment
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.MyinfoFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
+
 
     companion object{
         var user_status = false //
         var login_status = false    // if user just login, true
         var user_nickname: String? = "근짱"
         var user_address: String? = "서울 금천구 가산동 가산디지털1로 128 "
+
+        const val TAG_LIST_HOMEPAGE = "TAG_LIST_HOMEPAGE"
+        private val REQUEST_IMAGE_CAPTURE = 1
+        lateinit var currentPhotoPath : String //문자열 형태의 사진 경로값 (초기값을 null로 시작하고 싶을 때 - lateinti var)
+        val REQUEST_IMAGE_PICK = 10
+        val request_Image_list = mutableListOf<ImageView>()
+        val request_Image_File_list = mutableListOf<Uri>()
+        var img_num = 0
     }
 
     private val gpsTracker: GpsTracker? = null
@@ -43,7 +71,11 @@ class MainActivity : AppCompatActivity() {
     private val PERMISSIONS_REQUEST_CODE = 100
     var REQUIRED_PERMISSIONS = arrayOf<String>(
         Manifest.permission.ACCESS_FINE_LOCATION,
-        Manifest.permission.ACCESS_COARSE_LOCATION
+        Manifest.permission.ACCESS_COARSE_LOCATION,
+        Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_EXTERNAL_STORAGE
+
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,8 +89,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             showDialogForLocationServiceSetting();
         }
-
-
 
         Log.d("test", sSharedPreferences?.getString(X_ACCESS_TOKEN, "noToken")!!)
 
@@ -173,8 +203,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     fun checkRunTimePermission() {
 
         //런타임 퍼미션 처리
@@ -187,8 +215,23 @@ class MainActivity : AppCompatActivity() {
             this,
             Manifest.permission.ACCESS_COARSE_LOCATION
         )
+        val hasCameraPermission = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.CAMERA
+        )
+        val hasWriteExternalStoragePermission = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+        val hasReadExternalStragePermission = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        )
         if (hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
-            hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED
+            hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED &&
+            hasCameraPermission == PackageManager.PERMISSION_GRANTED &&
+            hasWriteExternalStoragePermission == PackageManager.PERMISSION_GRANTED&&
+            hasReadExternalStragePermission == PackageManager.PERMISSION_GRANTED
         ) {
 
             // 2. 이미 퍼미션을 가지고 있다면
@@ -245,6 +288,13 @@ class MainActivity : AppCompatActivity() {
         builder.create().show()
     }
 
+    fun checkLocationServicesStatus(): Boolean {
+        val locationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+                || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
+    }
+
 
     override fun onActivityResult(
         requestCode: Int,
@@ -263,13 +313,143 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
         }
+
+        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK){
+            val bitmap : Bitmap
+            val file = File(currentPhotoPath)
+            if(Build.VERSION.SDK_INT < 28){//안드로이드 9.0 보다 버전이 낮을 경우
+                bitmap = MediaStore.Images.Media.getBitmap(contentResolver, Uri.fromFile(file))
+                request_Image_list[img_num].setImageBitmap(bitmap)
+                request_Image_File_list[img_num] = Uri.fromFile(file)
+                Log.d("test", Uri.fromFile(file).toString())
+
+            }else{//안드로이드 9.0 보다 버전이 높을 경우
+                val decode = ImageDecoder.createSource(
+                    this.contentResolver,
+                    Uri.fromFile(file)
+                )
+                bitmap = ImageDecoder.decodeBitmap(decode)
+                request_Image_list[img_num].setImageBitmap(bitmap)
+                request_Image_File_list[img_num] = Uri.fromFile(file)
+                Log.d("test", Uri.fromFile(file).toString())
+            }
+        }
+
+        if(requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK){
+            val bitmap : Bitmap
+            if(Build.VERSION.SDK_INT < 28){//안드로이드 9.0 보다 버전이 낮을 경우
+                bitmap = MediaStore.Images.Media.getBitmap(contentResolver,data?.data)
+                request_Image_File_list[img_num] = Uri.parse("file://"+ getPath(data?.data!!) )
+                Log.d("test", "android 9.0 미만 ${request_Image_File_list[img_num]}")
+                request_Image_list[img_num].setImageBitmap(bitmap)
+            }
+            else if(Build.VERSION.SDK_INT >= 29) {//안드로이드 10.0 보다 버전이 높은 경우
+                val decode = ImageDecoder.createSource(
+                    this.contentResolver,
+                    data?.data!!
+                )
+                bitmap = ImageDecoder.decodeBitmap(decode)
+                request_Image_File_list[img_num] =  Uri.fromFile(createCopy(this, data.data!!))
+                request_Image_list[img_num].setImageBitmap(bitmap)
+            }
+            else{//안드로이드 9.0 인 경우
+                val decode = ImageDecoder.createSource(
+                    this.contentResolver,
+                    data?.data!!
+                )
+                bitmap = ImageDecoder.decodeBitmap(decode)
+                request_Image_File_list[img_num] =  Uri.parse("file://" + getPath(data.data!!))
+                Log.d("안드로이드 9.0 test", "${request_Image_File_list[img_num]}")
+
+                request_Image_list[img_num].setImageBitmap(bitmap)
+            }
+        }
+
     }
 
-    fun checkLocationServicesStatus(): Boolean {
-        val locationManager =
-            getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        return (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
+    fun getPhotoFromMyGallary() {
+        Intent(Intent.ACTION_PICK).apply{
+            type = "image/*"
+            startActivityForResult(this,REQUEST_IMAGE_PICK)
+        }
+    }
+
+    @SuppressLint("QueryPermissionsNeeded")
+    fun takeCapture() {
+        //기본 카메라 앱 실행
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+            takePictureIntent.resolveActivity(packageManager)?.also {
+                val photoFile : File? = try{
+                    createImageFile()
+                }catch (e:Exception){
+                    null
+                }
+                photoFile?.also {
+                    val photoURI : Uri = FileProvider.getUriForFile(
+                        this,
+                        "com.professionalandroid.apps.baemin_clone_android.provider",
+                        it
+                    )
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                }
+            }
+        }
+    }
+
+    private fun createImageFile(): File {
+        val timestamp : String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val storageDir : File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile("JPEG_${timestamp}_",".jpeg",storageDir).apply {
+            currentPhotoPath = absolutePath
+        }
+    }
+
+    fun getPath(uri: Uri): String?{
+        val result: String?
+        val cursor: Cursor? = contentResolver.query(uri, null, null, null, null)
+
+        if (cursor == null) { // Source is Dropbox or other similar local file path
+            result = uri.path
+        } else {
+            cursor.moveToFirst()
+            val idx: Int = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+            result = cursor.getString(idx)
+            cursor.close()
+        }
+
+        return result
+    }
+
+    @Nullable
+    fun createCopy(
+        @NonNull context: Context, @NonNull uri: Uri
+    ): File? {
+        val imageUrl = getPath(uri)
+        val mimeTypeMap = MimeTypeMap.getSingleton()
+        val extension = MimeTypeMap.getFileExtensionFromUrl(imageUrl)
+        val mimeType = mimeTypeMap.getMimeTypeFromExtension(extension)
+
+        val mimetype = "." + StringBuffer(mimeType!!).substring(6).toString()
+        Log.d("test", mimetype)
+        val storageDir : File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val contentResolver: ContentResolver = context.contentResolver ?: return null
+        // Create temporary
+        val file = File.createTempFile( "${System.currentTimeMillis()}",mimetype,storageDir).apply {
+            currentPhotoPath = absolutePath
+        }
+        try {
+            val inputStream: InputStream = contentResolver.openInputStream(uri) ?: return null
+            val outputStream: OutputStream = FileOutputStream(file)
+            val buf = ByteArray(1024)
+            var len: Int
+            while (inputStream.read(buf).also { len = it } > 0) outputStream.write(buf, 0, len)
+            outputStream.close()
+            inputStream.close()
+        } catch (ignore: IOException) {
+            return null
+        }
+        return file
     }
 
 

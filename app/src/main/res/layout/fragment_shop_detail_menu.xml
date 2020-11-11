@@ -46,7 +46,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/shop_detail_menu_recyclerview2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:background="#E5E5E5"/>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

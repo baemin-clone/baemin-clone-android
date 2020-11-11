@@ -19,12 +19,12 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="210dp"
                 android:orientation="vertical"
                 android:background="#ffffff"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="45dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginTop="55dp"
                 android:elevation="6dp">
                 <TextView
                     android:id="@+id/shop_detail_title"
@@ -153,7 +153,7 @@
                         app:layout_constraintRight_toLeftOf="@id/shop_detail_bookmark">
 
                         <ImageView
-                            android:layout_width="25dp"
+                            android:layout_width="30dp"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
                             android:src="@drawable/call"/>
@@ -162,7 +162,7 @@
                             android:layout_height="wrap_content"
                             android:text="전화"
                             android:textColor="#000000"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center_vertical"/>
 
                     </LinearLayout>
@@ -179,7 +179,7 @@
 
                         <ImageView
                             android:id="@+id/shop_detail_bookmark_img"
-                            android:layout_width="25dp"
+                            android:layout_width="30dp"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
                             android:src="@drawable/bookmark_check"
@@ -197,7 +197,7 @@
                             android:layout_height="wrap_content"
                             android:text="451"
                             android:textColor="#000000"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center_vertical"/>
 
                     </LinearLayout>
@@ -213,7 +213,7 @@
                         app:layout_constraintRight_toRightOf="parent">
 
                         <ImageView
-                            android:layout_width="25dp"
+                            android:layout_width="30dp"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
                             android:src="@drawable/share"/>
@@ -222,7 +222,7 @@
                             android:layout_height="wrap_content"
                             android:text="공유"
                             android:textColor="#000000"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center_vertical"/>
 
                     </LinearLayout>
@@ -305,7 +305,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/shop_detail_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:theme="@style/ToolbarTheme"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
@@ -313,13 +313,12 @@
         app:contentInsetStart="0dp"
         android:background="#ffffff">
 
-
-
         <TextView
             android:id="@+id/shop_detail_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="메뉴이름"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:layout_gravity="center" />
 
@@ -334,18 +333,34 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/shop_detail_fab"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:background="#2AE1BC"
-        android:src="@drawable/floatingbutton"
-        app:maxImageSize="56dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_gravity="bottom|end"
-        android:elevation="8dp"/>
+        android:layout_gravity="bottom|end">
 
 
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/shop_detail_fab"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/fab"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="8dp"
+            app:riv_corner_radius="20dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/circle"/>
+        <TextView
+            android:id="@+id/shoppingCart_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"/>
+    </FrameLayout>
 </FrameLayout>

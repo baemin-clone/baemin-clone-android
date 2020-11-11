@@ -10,21 +10,23 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.professionalandroid.apps.baemin_clone_android.R
-import com.professionalandroid.apps.baemin_clone_android.ShoppingItem
+import com.professionalandroid.apps.baemin_clone_android.*
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCart
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCartShopIdx
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.interfaces.ShopDetailItemFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.models.Option
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.models.ShopDetailItemResponse
+import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.ShoppingCartFragment
+import kotlinx.android.synthetic.main.fragment_shop_detail.view.*
 import kotlinx.android.synthetic.main.fragment_shop_detail_item.*
 import kotlinx.android.synthetic.main.fragment_shop_detail_item.view.*
 
 class ShopDetailItemFragment : Fragment(), ShopDetailItemFragmentView {
 
     companion object{
-        val tempShoppingList = mutableListOf<Int?>()
+        val tempShoppingList = mutableListOf<OptionArray>()
+        //val tempShoppingArray = mutableListOf<OptionArray>()
     }
 
     val mShopDetailItemService = ShopDetailItemService(this)
@@ -70,9 +72,9 @@ class ShopDetailItemFragment : Fragment(), ShopDetailItemFragmentView {
         mShopDetailItemService.shopDetailItem(menuidx!!)
 
         view.shop_detail_item_submit_btn.setOnClickListener {
-            val tempShoppingListItem = ShoppingItem(menuidx, Integer.parseInt(shop_detail_item_num.text.toString()), tempShoppingList.toMutableList())
-            Log.d("test", tempShoppingList.toString())
+            val tempShoppingListItem = ShoppingItem(menuidx,Integer.parseInt(shop_detail_item_num.text.toString()),tempShoppingList.toMutableList())
             shoppingCartShopIdx = shopidx!!
+
             shoppingCart.add(tempShoppingListItem)
             tempShoppingList.clear()
             Log.d("test", shoppingCart.joinToString())
@@ -80,18 +82,19 @@ class ShopDetailItemFragment : Fragment(), ShopDetailItemFragmentView {
         }
 
 
+
         return view
     }
 
     override fun shopDetailItem(body: ShopDetailItemResponse) {
         Glide.with(this)
-            .load(body.result.photoPath)
+            .load(body.result?.photoPath)
             .centerCrop()
             .into(shop_detail_item_img)
-        shop_detail_item_title.text = body.result.menuTitle
-        shop_detail_item_description.text = body.result.details
-        for(kind in body.result.options){
-            if(kind.required){
+        shop_detail_item_title.text = body.result?.menuTitle
+        shop_detail_item_description.text = body.result?.details
+        for(kind in body.result?.options!!){
+            if(kind.required!!){
                 requiredItem.add(kind)
             }
             else{

@@ -3,11 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/temp"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/home_delivery_viewpager_img"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="dddddddddddddddddd"
-        />
+        android:adjustViewBounds="true"/>
 
 </LinearLayout>

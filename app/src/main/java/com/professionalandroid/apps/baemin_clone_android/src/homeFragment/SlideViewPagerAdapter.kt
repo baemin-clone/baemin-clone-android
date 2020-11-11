@@ -3,17 +3,18 @@ package com.professionalandroid.apps.baemin_clone_android.src.homeFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.R
 import kotlinx.android.synthetic.main.item_home_viewpager.view.*
 
-class SlideViewPagerAdapter(var items: MutableList<String>): RecyclerView.Adapter<SlideViewPagerAdapter.PagerViewHolder>() {
+class SlideViewPagerAdapter(var items: MutableList<Int>): RecyclerView.Adapter<SlideViewPagerAdapter.PagerViewHolder>() {
 
-    class PagerViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var textView:TextView? = null
+    class PagerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var img: ImageView? = null
         init {
-            textView= v.temp
+            img = view.home_delivery_viewpager_img
         }
     }
 
@@ -27,7 +28,7 @@ class SlideViewPagerAdapter(var items: MutableList<String>): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
-        holder.textView?.text = "RecyclerViewAdapter\nPage ${position+1}\n${items[position]}"
+        holder.img?.setImageResource(items[position])
     }
 }
 

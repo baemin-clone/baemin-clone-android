@@ -7,22 +7,25 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.professionalandroid.apps.baemin_clone_android.OptionArray
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.ShopDetailItemFragment.Companion.tempShoppingList
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.models.Content
 import kotlinx.android.synthetic.main.layout_shop_detail_required_item_selector.view.*
 
 
-class ShopDetailRequiredItemSelectorRecyclerViewAdapter(items: List<Content>, context: Context) :
+class ShopDetailRequiredItemSelectorRecyclerViewAdapter(items: List<Content>, context: Context, groupidx: Int) :
     RecyclerView.Adapter<ShopDetailRequiredItemSelectorRecyclerViewAdapter.ViewHolder>() {
     var mSelectedItem = -1
     var mItems: List<Content>
+    var groupIdx: Int? = null
     private val mContext: Context
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.mText.text = mItems[position].title
         holder.price.text = mItems[position].price.toString()
         holder.mRadio.isChecked = position == mSelectedItem
-        holder.requiredItemIdx = mItems[position].optionIdx
+        holder.requiredItemIdx = mItems[position].optionIdx!!
     }
 
     override fun getItemCount(): Int {
@@ -47,9 +50,24 @@ class ShopDetailRequiredItemSelectorRecyclerViewAdapter(items: List<Content>, co
             price = view.required_item_price
             requiredItemIdx = 0
             val clickListener = View.OnClickListener {
-                tempShoppingList.remove(mSelectedItem)
+                for(i in tempShoppingList){
+                    if(i.optionGroupIdx == groupIdx){
+                        i.options.remove(mSelectedItem)
+                    }
+                }
                 mSelectedItem = adapterPosition
-                tempShoppingList.add(mSelectedItem)
+                var k = false
+                for(i in tempShoppingList){
+                    if(i.optionGroupIdx == groupIdx){
+                        i.options.add(mSelectedItem)
+                        k = true
+                        break
+                    }
+                }
+                if(!k){
+                    tempShoppingList.add(OptionArray(groupIdx!!, mutableListOf(mSelectedItem)))
+
+                }
                 notifyDataSetChanged()
             }
             itemView.setOnClickListener(clickListener)
@@ -60,5 +78,6 @@ class ShopDetailRequiredItemSelectorRecyclerViewAdapter(items: List<Content>, co
     init {
         mContext = context
         mItems = items
+        groupIdx = groupidx
     }
 }

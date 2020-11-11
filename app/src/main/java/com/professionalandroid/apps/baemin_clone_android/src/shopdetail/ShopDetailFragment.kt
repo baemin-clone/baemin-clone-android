@@ -17,6 +17,7 @@ import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdeta
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_information.ShopDetailInformationFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.ShopDetailMenuFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_visit.ShopDetailVisitFragment
+import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.ShoppingCartFragment
 import kotlinx.android.synthetic.main.activity_shoplist.*
 import kotlinx.android.synthetic.main.fragment_shop_detail.*
 import kotlinx.android.synthetic.main.fragment_shop_detail.view.*
@@ -129,6 +130,11 @@ class ShopDetailFragment : Fragment(), ShopDetailFragmentView {
         }
 
         mShopDetailService.getShopDetail(shopidx)
+
+        view.shop_detail_fab.setOnClickListener {
+            val shoppingCartPage = ShoppingCartFragment()
+            (activity as ShoplistActivity).addFragment(shoppingCartPage)
+        }
 
         return view
     }

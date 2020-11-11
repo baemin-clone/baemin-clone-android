@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff">
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item2_card_view"
+        android:layout_width="340dp"
+        android:layout_height="250dp"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="#80ffffff">
+
+        <LinearLayout
+            android:id="@+id/brand_background"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:orientation="vertical"
+            android:background="#000000">
+
+            <TextView
+                android:id="@+id/brand_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="치요남치킨"
+                android:layout_marginTop="55dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"
+                android:textColor="#ffffff"/>
+            <TextView
+                android:id="@+id/brand_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:text="세상 어디에도 없는 치킨과 요리의 만남"
+                android:textColor="#ffffff"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/brand_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="20dp"
+            android:background="#000000">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/coupon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#ffffff"
+                android:text="쿠폰"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/brand_newmenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="80dp"
+            android:background="#000000">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/newmenu"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#ffffff"
+                android:text="신메뉴"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/event"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/brand_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="203dp"
+            android:layout_marginStart="45dp"
+            android:text="쿠폰"
+            android:textColor="#000000"/>
+    </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/brand_logo"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/temp"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="30dp"
+        android:elevation="3dp"/>
+
+
+</FrameLayout>

@@ -12,7 +12,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/agreement_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:theme="@style/ToolbarTheme"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:text="@string/register"
             android:textStyle="bold"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:textSize="17sp"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -35,7 +36,13 @@
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,13 +55,13 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="30dp"/>
 
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/agreement_checkBox"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:text="전체 동의"
                 android:background="@drawable/layout_agreement" />
 
@@ -63,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="20dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/agreement_checkBox1"
@@ -89,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="20dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/agreement_checkBox2"
@@ -115,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="20dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/agreement_checkBox3"
@@ -141,7 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="20dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/agreement_checkBox4"
@@ -166,10 +173,11 @@
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/agreement_checkBox5"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="60dp"
                 android:text="마케팅 정보 메일, SMS 수신동의 (선택)"
-                android:background="@drawable/layout_agreement"
                 android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -196,8 +204,8 @@
                     />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-        </LinearLayout>
 
 
 
@@ -207,7 +215,7 @@
             android:layout_height="96dp"
             android:layout_gravity="top|right"
             android:src="@drawable/agreement_character"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="100dp"/>
 
         <Button
             android:id="@+id/agreement_next_btn"

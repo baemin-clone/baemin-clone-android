@@ -25,15 +25,35 @@ class ShoplistActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shoplist)
 
+        val tabLayoutTextArray =
+            listOf<String>(
+                getString(R.string.korea),
+                getString(R.string.dduck),
+                getString(R.string.japan),
+                getString(R.string.chicken),
+                getString(R.string.pizza),
+                getString(R.string.asia),
+                "중식",
+                getString(R.string.bossam),
+                getString(R.string.night),
+                getString(R.string.soup),
+                getString(R.string.dosirok),
+                getString(R.string.cafe),
+                getString(R.string.fastfood),
+                getString(R.string.franchise))
 
         setSupportActionBar(shoplist_toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val kind = intent.getIntExtra("kind", 0)
+
+        shoplist_name.text = tabLayoutTextArray[kind]
+
         val shoplistViewPagerFragment =
             ShoplistViewPagerFragment().apply {
                 arguments = Bundle().apply {
-                    putInt("kind", intent.getIntExtra("kind", -1))
+                    putInt("kind", kind)
                 }
             }
         supportFragmentManager.beginTransaction().replace(R.id.shoplist_fragment, shoplistViewPagerFragment).commit()

@@ -41,7 +41,7 @@ class ShopDetailOptionalItemRecyclerViewAdapter(): RecyclerView.Adapter<ShopDeta
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val madapter = ShopDetailOptionalItemSelectorRecyclerViewAdapter(optionalItem[position].contents, mcontext)
+        val madapter = ShopDetailOptionalItemSelectorRecyclerViewAdapter(optionalItem[position].contents, mcontext, optionalItem[position].optionGroupIdx!!)
         holder.optionalItemTitle?.text = optionalItem[position].groupTitle
         holder.optionalRecyclerview?.layoutManager = LinearLayoutManager(mcontext)
         holder.optionalRecyclerview?.adapter = madapter

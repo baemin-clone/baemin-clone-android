@@ -67,9 +67,10 @@ class AdditionalAddressFragment : Fragment(), AdditionalAddressFragmentView {
 
     override fun movetoMain() {
         user_address = tempaddr
-        val homePage = HomeFragment()
-        (activity as MainActivity).addFragment(homePage)
-        (activity as MainActivity).supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        val ft = (activity as MainActivity).supportFragmentManager
+        ft.popBackStack()
+        ft.popBackStack()
+        ft.beginTransaction().remove(this).commitNow()
     }
 
 

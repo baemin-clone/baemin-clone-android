@@ -44,7 +44,8 @@ class ShopDetailRequiredItemRecyclerViewAdapter(): RecyclerView.Adapter<ShopDeta
         val madapter =
             ShopDetailRequiredItemSelectorRecyclerViewAdapter(
                 requiredItem[position].contents,
-                mcontext
+                mcontext,
+                requiredItem[position].optionGroupIdx!!
             )
         holder.requiredItemTitle?.text = requiredItem[position].groupTitle
         holder.selectorRecyclerview?.layoutManager = LinearLayoutManager(mcontext)

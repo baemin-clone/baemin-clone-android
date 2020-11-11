@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.professionalandroid.apps.baemin_clone_android.OptionArray
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.ShopDetailItemFragment.Companion.tempShoppingList
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.models.Content
@@ -16,10 +17,12 @@ class ShopDetailOptionalItemSelectorRecyclerViewAdapter(): RecyclerView.Adapter<
 
     lateinit var optionalItem : List<Content?>
     lateinit var mcontext: Context
+    var groupIdx: Int? = null
 
-    constructor(optionalItem:List<Content?>, context:Context):this(){
+    constructor(optionalItem:List<Content?>, context:Context, groupidx: Int):this(){
         this.optionalItem = optionalItem
         mcontext = context
+        groupIdx = groupidx
     }
 
     inner class SubViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -37,18 +40,47 @@ class ShopDetailOptionalItemSelectorRecyclerViewAdapter(): RecyclerView.Adapter<
             parentview.setOnClickListener {
                 optionalCheckbox?.isChecked = !optionalCheckbox?.isChecked!!
                 if(optionalCheckbox?.isChecked!!){
-                    tempShoppingList.add(optionalItemIdx)
+                    var k = false
+                    for(i in tempShoppingList){
+                        if(i.optionGroupIdx == groupIdx){
+                            i.options.add(optionalItemIdx!!)
+                            k = true
+                            break
+                        }
+                    }
+                    if(!k){
+                        tempShoppingList.add(OptionArray(groupIdx!!, mutableListOf(optionalItemIdx!!)))
+                    }
+
                 }
                 else{
-                    tempShoppingList.remove(optionalItemIdx)
+                    for(i in tempShoppingList){
+                        if(i.optionGroupIdx == groupIdx){
+                            i.options.remove(optionalItemIdx!!)
+                        }
+                    }
                 }
             }
             optionalCheckbox?.setOnClickListener {
                 if(optionalCheckbox?.isChecked!!){
-                    tempShoppingList.add(optionalItemIdx)
+                    var k = false
+                    for(i in tempShoppingList){
+                        if(i.optionGroupIdx == groupIdx){
+                            i.options.add(optionalItemIdx!!)
+                            k = true
+                            break
+                        }
+                    }
+                    if(!k){
+                        tempShoppingList.add(OptionArray(groupIdx!!, mutableListOf(optionalItemIdx!!)))
+                    }
                 }
                 else{
-                    tempShoppingList.remove(optionalItemIdx)
+                    for(i in tempShoppingList){
+                        if(i.optionGroupIdx == groupIdx){
+                            i.options.remove(optionalItemIdx!!)
+                        }
+                    }
                 }
             }
         }

@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".src.homeFragment.DeliveryFragment">
+    android:background="#E5E5E5"
+    tools:context=".src.homeFragment.delivery.DeliveryFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +28,9 @@
         <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#E5E5E5">
+            android:background="#F6F6F6"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,7 +49,7 @@
                     <ImageView
                         android:id="@+id/home_present"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_present"
                         app:layout_constraintBottom_toTopOf="@id/home_present_guide"
@@ -60,7 +63,7 @@
                         android:layout_height="wrap_content"
                         android:text="선물하기"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -78,7 +81,7 @@
                     <ImageView
                         android:id="@+id/home_bmart"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_bmart"
                         app:layout_constraintBottom_toTopOf="@id/home_bmart_guide"
@@ -92,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:text="B마트"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -108,7 +111,7 @@
                     <ImageView
                         android:id="@+id/home_thunder"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_thunder"
                         app:layout_constraintBottom_toTopOf="@id/home_thunder_guide"
@@ -122,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:text="번쩍배달"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -138,7 +141,7 @@
                     <ImageView
                         android:id="@+id/home_riders"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_riders"
                         app:layout_constraintBottom_toTopOf="@id/home_riders_guide"
@@ -152,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:text="배민라이더스"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -179,7 +182,7 @@
                     <ImageView
                         android:id="@+id/home_visit"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_visit"
                         app:layout_constraintBottom_toTopOf="@id/home_visit_guide"
@@ -193,7 +196,7 @@
                         android:layout_height="wrap_content"
                         android:text="포장/방문"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -211,7 +214,7 @@
                     <ImageView
                         android:id="@+id/home_for1"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_for1"
                         app:layout_constraintBottom_toTopOf="@id/home_for1_guide"
@@ -225,7 +228,7 @@
                         android:layout_height="wrap_content"
                         android:text="1인분"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -241,7 +244,7 @@
                     <ImageView
                         android:id="@+id/home_korea"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_korea"
                         app:layout_constraintBottom_toTopOf="@id/home_home_korea_guide"
@@ -255,7 +258,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/korea"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -271,7 +274,7 @@
                     <ImageView
                         android:id="@+id/home_dduck"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_dduck"
                         app:layout_constraintBottom_toTopOf="@id/home_dduck_guide"
@@ -285,7 +288,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/dduck"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -313,7 +316,7 @@
                     <ImageView
                         android:id="@+id/home_cafe"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_cafe"
                         app:layout_constraintBottom_toTopOf="@id/home_cafe_guide"
@@ -327,7 +330,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/cafe"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -345,7 +348,7 @@
                     <ImageView
                         android:id="@+id/home_japan"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_japan"
                         app:layout_constraintBottom_toTopOf="@id/home_japan_guide"
@@ -359,7 +362,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/japan"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -375,7 +378,7 @@
                     <ImageView
                         android:id="@+id/home_chicken"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_chiken"
                         app:layout_constraintBottom_toTopOf="@id/home_home_chicken_guide"
@@ -389,7 +392,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/chicken"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -405,7 +408,7 @@
                     <ImageView
                         android:id="@+id/home_pizza"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_pizza"
                         app:layout_constraintBottom_toTopOf="@id/home_pizza_guide"
@@ -419,7 +422,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/pizza"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -446,7 +449,7 @@
                     <ImageView
                         android:id="@+id/home_asia"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_asia"
                         app:layout_constraintBottom_toTopOf="@id/home_asia_guide"
@@ -460,7 +463,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/asia"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -478,7 +481,7 @@
                     <ImageView
                         android:id="@+id/home_china"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_china"
                         app:layout_constraintBottom_toTopOf="@id/home_china_guide"
@@ -492,7 +495,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/china"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -508,7 +511,7 @@
                     <ImageView
                         android:id="@+id/home_bossam"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_bossam"
                         app:layout_constraintBottom_toTopOf="@id/home_home_bossam_guide"
@@ -522,7 +525,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/bossam"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -538,7 +541,7 @@
                     <ImageView
                         android:id="@+id/home_night"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_night"
                         app:layout_constraintBottom_toTopOf="@id/home_night_guide"
@@ -552,7 +555,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/night"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -580,7 +583,7 @@
                     <ImageView
                         android:id="@+id/home_soup"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_soup"
                         app:layout_constraintBottom_toTopOf="@id/home_soup_guide"
@@ -594,7 +597,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/soup"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -612,7 +615,7 @@
                     <ImageView
                         android:id="@+id/home_dosirok"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_dosirok"
                         app:layout_constraintBottom_toTopOf="@id/home_dosirok_guide"
@@ -626,7 +629,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/dosirok"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -642,7 +645,7 @@
                     <ImageView
                         android:id="@+id/home_fastfood"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_fastfood"
                         app:layout_constraintBottom_toTopOf="@id/home_home_fastfood_guide"
@@ -656,7 +659,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/fastfood"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -672,7 +675,7 @@
                     <ImageView
                         android:id="@+id/home_franchise"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_franchise"
                         app:layout_constraintBottom_toTopOf="@id/home_franchise_guide"
@@ -686,7 +689,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/franchise"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -714,7 +717,7 @@
                     <ImageView
                         android:id="@+id/home_ranking"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_ranking"
                         app:layout_constraintBottom_toTopOf="@id/home_ranking_guide"
@@ -728,7 +731,7 @@
                         android:layout_height="wrap_content"
                         android:text="맛집랭킹"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -746,7 +749,7 @@
                     <ImageView
                         android:id="@+id/home_best"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_best"
                         app:layout_constraintBottom_toTopOf="@id/home_best_guide"
@@ -760,7 +763,7 @@
                         android:layout_height="wrap_content"
                         android:text="전국별미"
                         android:textColor="#000000"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -809,7 +812,10 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/round_black_layout"
                 app:layout_column="0"
                 app:layout_row="6">
@@ -829,7 +835,7 @@
                     android:id="@+id/home_search_guide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:text="먹고 싶은 메뉴, 가게 검색"
                     android:textColor="#000000"
                     android:textStyle="bold"
@@ -840,7 +846,123 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.gridlayout.widget.GridLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:background="#ffffff">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="브랜드관"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:text="전체보기"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/brand_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"/>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#ffffff">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오늘은\n이거 어때요?"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="우리동네 "
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#햄버거와피자"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#2AC1BC"/>
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recommendation1_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:paddingTop="10dp"/>
+
+        <LinearLayout
+            android:paddingTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:background="#ffffff">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="출출할 때 "
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:paddingStart="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#맥주와안주"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#2AC1BC"/>
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recommendation2_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:paddingTop="10dp"/>
 
     </LinearLayout>
 </ScrollView>

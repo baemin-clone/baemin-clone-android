@@ -6,26 +6,30 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".src.shopping_cart.ShoppingCartFragment"
-    android:clickable="true">
+    android:clickable="true"
+    android:background="#E5E5E5">
 
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/shoppingCart_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:theme="@style/ToolbarTheme"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         android:background="#ffffff"
-        android:layout_gravity="top">
+        android:layout_gravity="top"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp">
 
         <TextView
             android:id="@+id/shoppingCart_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="음식종류"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:layout_gravity="center"/>
 
@@ -33,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:textSize="17sp"
             android:text="전체삭제"/>
 
     </androidx.appcompat.widget.Toolbar>
@@ -47,23 +52,33 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/shoppingCart_shop_title"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:text="가게이름"
+                android:gravity="center_vertical"
+                android:textColor="#000000"
                 android:background="@drawable/layout_agreement"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="1dp"
+                android:padding="15dp"/>
 
             <RadioGroup
                 android:id="@+id/shoppingCart_way"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:padding="15dp"
+                android:layout_marginBottom="10dp">
 
                 <RadioButton
                     android:id="@+id/radioButton1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="배달"
+                    android:textSize="15sp"
                     android:textColor="#000000"
                     />
                 <TextView
@@ -76,6 +91,7 @@
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="15sp"
                     android:text="포장" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -86,18 +102,84 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shoppingCart_item_recyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#ffffff"
+                android:text="+ 더 담으러 가기"
+                android:textColor="#2AC1BC"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총 주문금액"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/won1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="원"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1,3000"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/won1"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:padding="13sp"
+                android:text="배달의민족은 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 배달의 민족은 상품 \u00B7 거래 정보 및 거래에 책임을 지지 않습니다."
+                android:textSize="10sp"
+                android:gravity="center"/>
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/shop_detail_item_submit_btn"
+        android:id="@+id/shoppingCart_submit_btn"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:background="@drawable/round_button2"
         android:layout_gravity="bottom"
-        android:layout_margin="20dp">
+        android:layout_margin="10dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

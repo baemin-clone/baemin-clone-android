@@ -8,8 +8,10 @@ import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.C
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_status
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.interfaces.ModifyMyinfoFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.interfaces.ModifyMyinfoRetrofitInterface
+import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.ProfilePictureResponse
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.UserInfoResponse
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.WithdrawalResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,4 +57,26 @@ class ModifyMyinfoService(private val mModifyMyinfoFragmentView: ModifyMyinfoFra
 
         })
     }
+
+    fun savephoto(imgFile: MultipartBody.Part){
+        modifyMyinfoRetrofitInterface.saveProfilePicture(imgFile).enqueue(object : Callback<ProfilePictureResponse>{
+            override fun onFailure(call: Call<ProfilePictureResponse>, t: Throwable) {
+                Log.d("test", "save photo 실패")
+            }
+
+            override fun onResponse(
+                call: Call<ProfilePictureResponse>,
+                response: Response<ProfilePictureResponse>
+            ) {
+                val body = response.body()
+                Log.d("test", body.toString())
+                if(body?.code == 200){
+                    mModifyMyinfoFragmentView.savePhoto(body)
+                }
+            }
+
+        })
+    }
+
+
 }
