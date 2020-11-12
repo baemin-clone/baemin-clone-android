@@ -1,15 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_color"
-    tools:context=".BookmarkFragment">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#E5E5E5"
+    tools:context=".src.bookmark.BookmarkFragment">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/bookmark_img"
-        android:layout_gravity="center"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/myinfo_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:theme="@style/ToolbarTheme"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:background="#ffffff">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="찜한가게"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/bookmark_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:tabIndicatorHeight="8dp"
+        app:tabIndicatorColor="#000000"
+        app:tabSelectedTextColor="#000000"
+        app:tabRippleColor="@null"
+        android:background="#ffffff"
+        android:layout_marginBottom="10dp"
+        app:tabIndicatorFullWidth="false">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/bookmark_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="찜한가게"
+            android:textSize="20sp"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/bookmark_direct_payment_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="바로결제"
+            android:textSize="20sp"
+            />
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/bookmark_call_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전화주문"
+            android:textSize="17sp" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <FrameLayout
+        android:id="@+id/bookmark_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+</LinearLayout>

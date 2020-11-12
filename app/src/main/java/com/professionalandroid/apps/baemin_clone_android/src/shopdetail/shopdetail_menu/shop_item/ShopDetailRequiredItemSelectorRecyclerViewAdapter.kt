@@ -66,7 +66,6 @@ class ShopDetailRequiredItemSelectorRecyclerViewAdapter(items: List<Content>, co
                 }
                 if(!k){
                     tempShoppingList.add(OptionArray(groupIdx!!, mutableListOf(mSelectedItem)))
-
                 }
                 notifyDataSetChanged()
             }

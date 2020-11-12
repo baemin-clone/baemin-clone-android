@@ -2,12 +2,14 @@ package com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.mod
 
 import android.app.Application
 import android.util.Log
+import com.professionalandroid.apps.baemin_clone_android.InfoChange
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.login_status
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_status
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.interfaces.ModifyMyinfoFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.interfaces.ModifyMyinfoRetrofitInterface
+import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.InfoChangeResponse
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.ProfilePictureResponse
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.UserInfoResponse
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.WithdrawalResponse
@@ -49,9 +51,10 @@ class ModifyMyinfoService(private val mModifyMyinfoFragmentView: ModifyMyinfoFra
                 call: Call<UserInfoResponse>,
                 response: Response<UserInfoResponse>
             ) {
-                val data = response.body()
-                if(data?.code == 200){
-                    mModifyMyinfoFragmentView.putUserdata(data.result.nickname, data.result.email, data.result.phone)
+                val body = response.body()
+                Log.d("test", body.toString())
+                if(body?.code == 200){
+                    mModifyMyinfoFragmentView.putUserdata(body.result.nickname, body.result.profilePath, body.result.email, body.result.phone)
                 }
             }
 
@@ -70,9 +73,25 @@ class ModifyMyinfoService(private val mModifyMyinfoFragmentView: ModifyMyinfoFra
             ) {
                 val body = response.body()
                 Log.d("test", body.toString())
-                if(body?.code == 200){
-                    mModifyMyinfoFragmentView.savePhoto(body)
-                }
+
+            }
+
+        })
+    }
+
+    fun change(data:InfoChange){
+        modifyMyinfoRetrofitInterface.changeInfo(data).enqueue(object : Callback<InfoChangeResponse>{
+            override fun onFailure(call: Call<InfoChangeResponse>, t: Throwable) {
+                Log.d("test", "infochange 실패")
+            }
+
+            override fun onResponse(
+                call: Call<InfoChangeResponse>,
+                response: Response<InfoChangeResponse>
+            ) {
+                val body = response.body()
+                Log.d("test", body.toString())
+
             }
 
         })

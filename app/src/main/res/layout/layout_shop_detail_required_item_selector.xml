@@ -12,7 +12,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:button="@drawable/radio"/>
 
     <TextView
         android:id="@+id/required_item_title"

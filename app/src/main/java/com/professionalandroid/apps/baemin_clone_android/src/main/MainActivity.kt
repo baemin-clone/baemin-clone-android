@@ -31,13 +31,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import com.professionalandroid.apps.baemin_clone_android.BookmarkFragment
-import com.professionalandroid.apps.baemin_clone_android.HistoryFragment
+import com.professionalandroid.apps.baemin_clone_android.src.history.HistoryFragment
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.RecommendFragment
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
 import com.professionalandroid.apps.baemin_clone_android.src.GpsTracker
+import com.professionalandroid.apps.baemin_clone_android.src.bookmark.BookmarkFragment
+import com.professionalandroid.apps.baemin_clone_android.src.history.OrderHistoryFragment
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.HomeFragment
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.MyinfoFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -47,8 +48,6 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-
-
 
     companion object{
         var user_status = false //
@@ -75,8 +74,9 @@ class MainActivity : AppCompatActivity() {
         Manifest.permission.CAMERA,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.READ_EXTERNAL_STORAGE
-
     )
+
+    val ft = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,6 +91,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         Log.d("test", sSharedPreferences?.getString(X_ACCESS_TOKEN, "noToken")!!)
+        // ft.addOnBackStackChangedListener(getListener())
 
         val homePage =
             HomeFragment()
@@ -99,15 +100,15 @@ class MainActivity : AppCompatActivity() {
         val bookmarkPage =
             BookmarkFragment()
         val historyPage =
-            HistoryFragment()
+            OrderHistoryFragment()
         val myinfoPage =
             MyinfoFragment()
 
-        val ft = supportFragmentManager
 
         // 자동로그인의 경우 정보를 shared preference에 저장해놓고 변경
         if (login_status){   // user 가 지금 로그인 했을 때
             ft.beginTransaction().replace(R.id.main_layout, myinfoPage).commit()
+            bottom_navigation_bar.selectedItemId = R.id.navigation_bar_myinfo
         }
         else{
             ft.beginTransaction().replace(R.id.main_layout, homePage).commit()
@@ -131,7 +132,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun addFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
+        val transaction = ft.beginTransaction()
+        transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
         transaction.add(R.id.main_full_layout, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
@@ -139,8 +141,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun closeFragment(fragment: Fragment){
-        val manager = supportFragmentManager
+        val manager = ft
         val transaction = manager.beginTransaction()
+        transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
         transaction.remove(fragment)
         transaction.commit()
         manager.popBackStack()
@@ -451,6 +454,5 @@ class MainActivity : AppCompatActivity() {
         }
         return file
     }
-
 
 }

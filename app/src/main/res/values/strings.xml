@@ -10,7 +10,7 @@
     <string name="naver_client_name">배달의민족clone</string>
     <string name="nickName">닉네임</string>
     <string name="nickName_example">닉네임을 2\u002D 10자로 입력해주세요</string>
-    <string name="nickName_caution">2 2\u002d 10자로 입력해주세요</string>
+    <string name="nickName_caution">2 \u002d 10자로 입력해주세요</string>
     <string name="birth">생년월일</string>
     <string name="birth_example">예) 2000.01.01</string>
     <string name="birth_caution">생년월일은 8자리로 입력해주세요 (예) 2000.01.01)</string>
@@ -40,4 +40,10 @@
     <string name="information"><b>정보</b></string>
     <string name="review"><b>리뷰</b></string>
     <string name="agreement">개인정보호법에 의해 만 14세 이상부터 배민서비스 이용이 가능합니다. 첫 주문시 본인인증을 받고있으며 만 14세 미만인 경우 계정정보가 삭제됩니다.</string>
+    <string name="bmart"><b>B마트</b></string>
+    <string name="deliveryandvisit"><b>배달 \u00b7 포장/방문</b></string>
+    <string name="bookmark"><b>찜한가게</b></string>
+    <string name="directpay"><b>바로결제</b></string>
+    <string name="call"><b>전화주문</b></string>
+
 </resources>

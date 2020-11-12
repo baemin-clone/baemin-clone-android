@@ -61,3 +61,8 @@ data class MenuItem(
     val menuNum: Int,
     val optionIdxArray: List<Int>
 )
+
+data class InfoChange(
+    val nickname: String?,
+    val pwd: String?
+)

@@ -1,6 +1,7 @@
 package com.professionalandroid.apps.baemin_clone_android.src.homeFragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +9,25 @@ import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayout
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.R
+import com.professionalandroid.apps.baemin_clone_android.ShoppingCart
+import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
+import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCart
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.delivery.DeliveryFragment
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_address
 import com.professionalandroid.apps.baemin_clone_android.src.map.MapSelectFragment
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        home_address.text = user_address
+        Log.d("test", "home_resume")
     }
 
     override fun onCreateView(
@@ -31,7 +42,6 @@ class HomeFragment : Fragment() {
             DeliveryFragment()
         val visitPage = VisitFragment()
         var nowPage = view.home_tab.selectedTabPosition
-        view.home_address.text = user_address
 
         val ft = (activity as MainActivity).supportFragmentManager
         ft.beginTransaction().replace(R.id.home_container, deliveryPage).commit()
@@ -58,6 +68,15 @@ class HomeFragment : Fragment() {
 
         })
 
+        if(shoppingCart.isNotEmpty()){
+            view.home_fab.visibility = View.VISIBLE
+            view.home_fab_count.text = shoppingCart.size.toString()
+        }
+        else{
+            view.home_fab.visibility = View.GONE
+        }
+
+
         view.home_address.setOnClickListener {
             val mapselectPage = MapSelectFragment()
             (activity as MainActivity).addFragment(mapselectPage)
@@ -65,5 +84,6 @@ class HomeFragment : Fragment() {
 
         return view
     }
+
 
 }

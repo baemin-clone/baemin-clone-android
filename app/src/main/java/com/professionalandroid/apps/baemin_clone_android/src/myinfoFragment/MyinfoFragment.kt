@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
@@ -15,9 +16,10 @@ import com.professionalandroid.apps.baemin_clone_android.src.login.LoginActivity
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_nickname
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.ModifyMyinfoFragment
+import kotlinx.android.synthetic.main.fragment_myinfo.*
 import kotlinx.android.synthetic.main.fragment_myinfo.view.*
 
-class MyinfoFragment : Fragment() {
+class MyinfoFragment : Fragment(),ModifyMyinfoFragment.Logout {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -30,13 +32,11 @@ class MyinfoFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_myinfo, container, false)
 
         if(sSharedPreferences?.getString(X_ACCESS_TOKEN, null) != null){
-            Log.d("teset", "fuck")
             view.myinfo_blank_ads.visibility = View.GONE
             view.myinfo_benefits.visibility = View.VISIBLE
             view.myinfo_detail.text = "고마운분, $user_nickname"
         }
         else{
-            Log.d("test", "please")
             view.myinfo_blank_ads.visibility = View.VISIBLE
             view.myinfo_benefits.visibility = View.GONE
             view.myinfo_detail.text = "로그인해주세요"
@@ -44,8 +44,9 @@ class MyinfoFragment : Fragment() {
 
         view.myinfo_login.setOnClickListener {
             if(sSharedPreferences?.getString(X_ACCESS_TOKEN, null) != null){
-                val modifyMyinfoPage = ModifyMyinfoFragment()
+                val modifyMyinfoPage = ModifyMyinfoFragment(this)
                 (activity as MainActivity).addFragment(modifyMyinfoPage)
+                (activity as MainActivity).supportFragmentManager.beginTransaction().hide(this)
             }
             else{
                 val intent = Intent(activity, LoginActivity::class.java)
@@ -58,7 +59,6 @@ class MyinfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
     }
 
@@ -73,6 +73,29 @@ class MyinfoFragment : Fragment() {
         (activity as LoginActivity).closeFragemtn(this)
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if (isVisibleToUser) {
+            Log.d("test","visible")
+        } else {
+            Log.d("test","gone")
+
+        }
+    }
+
+    override fun logout() {
+        if(sSharedPreferences?.getString(X_ACCESS_TOKEN, null) != null){
+            myinfo_blank_ads.visibility = View.GONE
+            myinfo_benefits.visibility = View.VISIBLE
+            myinfo_detail.text = "고마운분, $user_nickname"
+        }
+        else{
+            myinfo_blank_ads.visibility = View.VISIBLE
+            myinfo_benefits.visibility = View.GONE
+            myinfo_detail.text = "로그인해주세요"
+        }
     }
 
 }

@@ -11,8 +11,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="13dp">
+        android:layout_height="70dp"
+        android:layout_margin="13dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
         <TextView
             android:id="@+id/additional_old_address"
             android:layout_width="wrap_content"
@@ -51,18 +53,18 @@
     <EditText
         android:id="@+id/additional_address"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:hint="상세주소를 입력하세요(건물명, 동/호수 등)"
         android:textSize="15dp"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="13dp"
         android:padding="8dp"
-        android:background="@drawable/normal_edge"/>
+        android:background="@drawable/normal_box_edge"/>
 
     <Button
         android:id="@+id/additional_submit_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="@drawable/round_button2"
         android:layout_margin="13dp"
         android:layout_gravity="bottom"

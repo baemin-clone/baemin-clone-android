@@ -3,6 +3,7 @@ package com.professionalandroid.apps.baemin_clone_android.src.shopdetail
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,26 +11,36 @@ import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayout
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
+import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCart
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.interfaces.ShopDetailFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.models.Result
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shodetail_review.ShopDetailReviewFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_delivery.ShopDetailDeliveryFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_information.ShopDetailInformationFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.ShopDetailMenuFragment
+import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.ShopDetailItemFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_visit.ShopDetailVisitFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.ShoppingCartFragment
 import kotlinx.android.synthetic.main.activity_shoplist.*
 import kotlinx.android.synthetic.main.fragment_shop_detail.*
 import kotlinx.android.synthetic.main.fragment_shop_detail.view.*
 
-class ShopDetailFragment : Fragment(), ShopDetailFragmentView {
+class ShopDetailFragment() : Fragment(), ShopDetailFragmentView, ShopDetailItemFragment.ItemAdd {
 
     val mShopDetailService = ShopDetailService(this)
     lateinit var phone: String
+    var mlistener: Itemadd? = null
+
+    constructor(mlistener: Itemadd):this(){
+        this.mlistener = mlistener
+    }
+
+    interface Itemadd{
+        fun floateFab()
+}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -42,6 +53,13 @@ class ShopDetailFragment : Fragment(), ShopDetailFragmentView {
         (activity as ShoplistActivity).setSupportActionBar(view.shop_detail_toolbar)
         (activity as ShoplistActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
         (activity as ShoplistActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        if(shoppingCart.isNotEmpty()){
+            view.fab_num.visibility = View.VISIBLE
+            view.fab_count.text = shoppingCart.size.toString()
+        }else{
+            view.fab_num.visibility = View.GONE
+        }
 
 
         var nowPage = view.shop_detail_tab.selectedTabPosition
@@ -59,6 +77,11 @@ class ShopDetailFragment : Fragment(), ShopDetailFragmentView {
             arguments = Bundle().apply {
                 putInt("shopidx", shopidx)
             }
+        }
+
+        view.shop_detail_bookmark_img.setOnClickListener {
+            it.isSelected = !it.isSelected
+            mShopDetailService.modifyBookmark(shopidx)
         }
 
         view.shop_detail_call.setOnClickListener {
@@ -86,7 +109,7 @@ class ShopDetailFragment : Fragment(), ShopDetailFragmentView {
             }
         })
 
-        val shopDetailMenuPage = ShopDetailMenuFragment().apply {
+        val shopDetailMenuPage = ShopDetailMenuFragment(this).apply {
             arguments = Bundle().apply {
                 putInt("shopidx", shopidx)
             }
@@ -125,10 +148,6 @@ class ShopDetailFragment : Fragment(), ShopDetailFragmentView {
 
         })
 
-        view.shop_detail_bookmark.setOnClickListener {
-            it.isSelected = !it.isSelected
-        }
-
         mShopDetailService.getShopDetail(shopidx)
 
         view.shop_detail_fab.setOnClickListener {
@@ -146,6 +165,18 @@ class ShopDetailFragment : Fragment(), ShopDetailFragmentView {
         shop_detail_review_num.text = result?.reviewNum.toString()
         shop_detail_bookmark_num.text = result?.bookmarkNum.toString()
         phone = result?.phone.toString()
+    }
+
+    override fun addItem() {
+        if(shoppingCart.isNotEmpty()){
+            fab_num.visibility = View.VISIBLE
+            fab_count.text = shoppingCart.size.toString()
+            mlistener?.floateFab()
+        }else{
+            fab_num.visibility = View.GONE
+            mlistener?.floateFab()
+        }
+
     }
 
 }

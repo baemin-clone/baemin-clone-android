@@ -334,33 +334,45 @@
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end">
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/shop_detail_fab"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/fab"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="8dp"
+                app:riv_corner_radius="20dp"/>
+        </FrameLayout>
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/shop_detail_fab"
-            android:layout_width="80dp"
+        <FrameLayout
+            android:id="@+id/fab_num"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@drawable/fab"
+            android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:layout_marginEnd="20dp"
-            android:elevation="8dp"
-            app:riv_corner_radius="20dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/circle"/>
-        <TextView
-            android:id="@+id/shoppingCart_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:layout_gravity="center"
-            android:textColor="#ffffff"/>
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/circle"/>
+            <TextView
+                android:id="@+id/fab_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_gravity="center"
+                android:textColor="#2AC1BC"/>
+        </FrameLayout>
     </FrameLayout>
 </FrameLayout>

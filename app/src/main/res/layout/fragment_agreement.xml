@@ -34,8 +34,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp">
 
@@ -62,7 +62,8 @@
                 android:id="@+id/agreement_checkBox"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="전체 동의"
+                android:text="   전체 동의"
+                android:button="@drawable/check"
                 android:background="@drawable/layout_agreement" />
 
 
@@ -76,7 +77,8 @@
                     android:id="@+id/agreement_checkBox1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="배달의민족 이용약관 동의"
+                    android:button="@drawable/check"
+                    android:text="   배달의민족 이용약관 동의"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent" />
@@ -102,7 +104,8 @@
                     android:id="@+id/agreement_checkBox2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="전자금융거래 이용약관 동의"
+                    android:text="   전자금융거래 이용약관 동의"
+                    android:button="@drawable/check"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent" />
@@ -128,7 +131,8 @@
                     android:id="@+id/agreement_checkBox3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="개인정보 수집이용 동의"
+                    android:text="   개인정보 수집이용 동의"
+                    android:button="@drawable/check"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent" />
@@ -154,7 +158,8 @@
                     android:id="@+id/agreement_checkBox4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="개인정보 제3자 제공 동의 (선택)"
+                    android:text="   개인정보 제3자 제공 동의 (선택)"
+                    android:button="@drawable/check"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent" />
@@ -174,7 +179,8 @@
                 android:id="@+id/agreement_checkBox5"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="마케팅 정보 메일, SMS 수신동의 (선택)"
+                android:button="@drawable/check"
+                android:text="   마케팅 정보 메일, SMS 수신동의 (선택)"
                 android:layout_marginTop="10dp"/>
 
             </LinearLayout>
@@ -188,7 +194,8 @@
                     android:id="@+id/agreement_checkBox6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="본인은 만 14세 이상입니다."
+                    android:text="   본인은 만 14세 이상입니다."
+                    android:button="@drawable/check"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent" />
 

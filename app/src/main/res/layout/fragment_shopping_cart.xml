@@ -80,24 +80,26 @@
                     android:text="배달"
                     android:textSize="15sp"
                     android:textColor="#000000"
-                    />
+                    android:button="@drawable/radio"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="문 앞까지 음식이 배달됩니다."
-                    android:layout_marginLeft="30dp"/>
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="10dp"/>
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:text="포장" />
+                    android:text="포장"
+                    android:button="@drawable/radio"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="직접 가져가실수 있게 준비됩니다."
-                    android:layout_marginLeft="30dp"/>
+                    android:layout_marginStart="30dp"/>
             </RadioGroup>
 
 
@@ -149,9 +151,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
+                    android:id="@+id/shoppingCart_total_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1,3000"
+                    android:text="0"
                     android:textSize="17sp"
                     android:textColor="#000000"
                     android:textStyle="bold"
@@ -203,17 +206,18 @@
                     android:id="@+id/shoppingCart_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
+                    android:text="0"
                     android:layout_gravity="center"
                     android:textColor="#2AC1BC"/>
             </FrameLayout>
 
             <TextView
+                android:id="@+id/shoppingCart_total_price2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textColor="#ffffff"
-                android:text="1"/>
+                android:text="0"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

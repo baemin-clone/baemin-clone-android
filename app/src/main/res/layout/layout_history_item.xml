@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/history_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/temp"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:id="@+id/history_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="10/25일"
+            android:layout_marginStart="5dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/history_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="초밥왕"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/history_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="가게설명"
+        android:textColor="#000000"
+        android:layout_marginBottom="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/history_review"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/unable_review"
+            android:paddingEnd="2.5dp"/>
+
+        <ImageView
+            android:id="@+id/history_shop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/look_shop"
+            android:paddingStart="2.5dp"
+            android:paddingEnd="2.5dp"/>
+
+        <ImageView
+            android:id="@+id/history_detail"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/order_detail"
+            android:paddingStart="2.5dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/history_able"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="리뷰 쓰기 기간이 지났습니다."/>
+
+
+
+
+</LinearLayout>

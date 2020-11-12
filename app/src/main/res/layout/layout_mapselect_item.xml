@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="13dp">
     <TextView
@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="지번 주소"
+        android:layout_marginBottom="5dp"
         android:textSize="15sp"
         android:textColor="#000000"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:text="도로명"
         android:textSize="13sp"
-        android:background="@drawable/normal_edge"
+        android:padding="5dp"
+        android:background="@drawable/normal_box_edge"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/old_address"
         app:layout_constraintBottom_toBottomOf="parent"/>

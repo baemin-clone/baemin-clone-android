@@ -3,6 +3,7 @@ package com.professionalandroid.apps.baemin_clone_android.src.homeFragment.deliv
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,7 @@ import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.delive
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.delivery.models.Result1
 import kotlinx.android.synthetic.main.fragment_delivery.view.*
 
-class DeliveryFragment : Fragment(), DeliveryFragmentView {
+class DeliveryFragment() : Fragment(), DeliveryFragmentView {
 
     val mDeliveryService = DeliveryService(this)
 
@@ -41,6 +42,11 @@ class DeliveryFragment : Fragment(), DeliveryFragmentView {
         mRecommendationRecyclerView1Adapter = DeliveryRecommendation1RecyclerViewAdapter(recommendation1List, context)
         mRecommendationRecyclerView2Adapter = DeliveryRecommendation2RecyclerViewAdapter(recommendation1List, context)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("test", "delivery_resume")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -112,7 +118,7 @@ class DeliveryFragment : Fragment(), DeliveryFragmentView {
 
 
     fun movetoShoplist(kind: Int){
-        val intent = Intent(activity, ShoplistActivity::class.java)
+        val intent = Intent(activity, ShoplistActivity()::class.java)
         intent.putExtra("kind", kind)
         startActivity(intent)
     }

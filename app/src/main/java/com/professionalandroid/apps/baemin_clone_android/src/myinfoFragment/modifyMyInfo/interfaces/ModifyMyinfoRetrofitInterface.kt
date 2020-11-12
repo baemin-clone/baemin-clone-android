@@ -1,5 +1,7 @@
 package com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.interfaces
 
+import com.professionalandroid.apps.baemin_clone_android.InfoChange
+import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.InfoChangeResponse
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.ProfilePictureResponse
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.UserInfoResponse
 import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modifyMyInfo.models.WithdrawalResponse
@@ -21,4 +23,9 @@ interface ModifyMyinfoRetrofitInterface {
     fun saveProfilePicture(
         @Part img: MultipartBody.Part
     ): Call<ProfilePictureResponse>
+
+    @PATCH("/user-info")
+    fun changeInfo(
+        @Body data: InfoChange
+    ): Call<InfoChangeResponse>
 }

@@ -55,6 +55,7 @@ class LoginActivity : BaseActivity(), LoginActivityView {
 
     fun addFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
+        transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
         transaction.add(R.id.login_main_layout, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
@@ -63,6 +64,7 @@ class LoginActivity : BaseActivity(), LoginActivityView {
     fun closeFragemtn(fragment: Fragment){
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()
+        transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
         transaction.remove(fragment)
         transaction.commit()
         manager.popBackStack()

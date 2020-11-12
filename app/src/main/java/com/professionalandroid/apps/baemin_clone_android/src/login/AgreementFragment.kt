@@ -32,14 +32,25 @@ class AgreementFragment : Fragment() {
         val kinds = arguments?.getString("kinds")
         val token = arguments?.getString("token", "")
 
-        view.agreement_checkBox.setOnClickListener {
-            agreement_checkBox1.isChecked = true
-            agreement_checkBox2.isChecked = true
-            agreement_checkBox3.isChecked = true
-            agreement_checkBox4.isChecked = true
-            agreement_checkBox5.isChecked = true
-            agreement_checkBox6.isChecked = true
 
+
+        view.agreement_checkBox.setOnClickListener {
+            if(agreement_checkBox.isChecked) {
+                agreement_checkBox1.isChecked = true
+                agreement_checkBox2.isChecked = true
+                agreement_checkBox3.isChecked = true
+                agreement_checkBox4.isChecked = true
+                agreement_checkBox5.isChecked = true
+                agreement_checkBox6.isChecked = true
+            }
+            else{
+                agreement_checkBox1.isChecked = false
+                agreement_checkBox2.isChecked = false
+                agreement_checkBox3.isChecked = false
+                agreement_checkBox4.isChecked = false
+                agreement_checkBox5.isChecked = false
+                agreement_checkBox6.isChecked = false
+            }
             check(kinds!!, token!!)
         }
 

@@ -2,7 +2,6 @@ package com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdet
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,17 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
-import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.interfaces.ShopDetailMenuFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.models.Content
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.models.Menu
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.models.ShopDetailMenuResponse
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.ShopDetailItemFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_shop_detail_menu.*
 import kotlinx.android.synthetic.main.fragment_shop_detail_menu.view.*
 
-class ShopDetailMenuFragment : Fragment(), ShopDetailMenuFragmentView, ShopDetailSignatureRecyclerViewAdapter.ItemSelectedInterface, ShopDetailOtherSubRecyclerViewAdapter.SubItemSelectedInterface {
+class ShopDetailMenuFragment(val mcontext: ShopDetailItemFragment.ItemAdd) : Fragment(), ShopDetailMenuFragmentView, ShopDetailSignatureRecyclerViewAdapter.ItemSelectedInterface, ShopDetailOtherSubRecyclerViewAdapter.SubItemSelectedInterface {
 
     val mShopDetailMenuService = ShopDetailMenuService(this)
     var shopidx: Int? = null
@@ -88,7 +85,7 @@ class ShopDetailMenuFragment : Fragment(), ShopDetailMenuFragmentView, ShopDetai
 
     override fun onItemSelected(v: View, position: Int) {
         val viewHolder = mSignatureRecyclerView.findViewHolderForAdapterPosition(position) as ShopDetailSignatureRecyclerViewAdapter.ViewHolder
-        val shopDetailItemPage = ShopDetailItemFragment().apply {
+        val shopDetailItemPage = ShopDetailItemFragment(mcontext).apply {
             arguments = Bundle().apply {
                 putInt("shopidx", shopidx!!)
                 putInt("menuidx", viewHolder.idx!!)
@@ -99,7 +96,7 @@ class ShopDetailMenuFragment : Fragment(), ShopDetailMenuFragmentView, ShopDetai
 
     override fun onSubItemSelected(view: View, position: Int) {
         val subViewHolder = mOtherRecyclerViewAdapter.listener_recyclerview.findViewHolderForAdapterPosition(position) as ShopDetailOtherSubRecyclerViewAdapter.SubViewHolder
-        val shopDetailItemPage = ShopDetailItemFragment().apply {
+        val shopDetailItemPage = ShopDetailItemFragment(mcontext).apply {
             arguments = Bundle().apply {
                 putInt("shopidx", shopidx!!)
                 putInt("menuidx", subViewHolder.idx!!)

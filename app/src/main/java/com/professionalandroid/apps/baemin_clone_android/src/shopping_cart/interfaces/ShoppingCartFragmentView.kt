@@ -7,5 +7,4 @@ import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.model
 interface ShoppingCartFragmentView {
     fun shoppingCartTitle(body:ShoppingCartShopResponse)
     fun shoppingCartItem(body: ShoppingCartItemResponse, num: Int)
-    fun order(body: OrderResponse)
 }

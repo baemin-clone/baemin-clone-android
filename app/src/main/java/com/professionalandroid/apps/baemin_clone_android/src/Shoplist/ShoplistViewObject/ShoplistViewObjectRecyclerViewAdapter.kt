@@ -22,9 +22,6 @@ class ShoplistViewObjectRecyclerViewAdapter(): RecyclerView.Adapter<ShoplistView
     lateinit var onLoadMoreListener: OnLoadMoreListener
     lateinit var linearLayoutManager: LinearLayoutManager
 
-    private val VIEW_ITEM = 1
-    private val VIEW_PROG = 0
-
     constructor(shoplist: MutableList<Result>, onLoadMoreListener: OnLoadMoreListener, context: Context):this(){
         this.onLoadMoreListener = onLoadMoreListener
         shops = shoplist

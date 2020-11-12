@@ -10,15 +10,21 @@ import androidx.fragment.app.FragmentManager
 import com.professionalandroid.apps.baemin_clone_android.NowAddress
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.HomeFragment
+import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.delivery.DeliveryFragment
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_address
 import com.professionalandroid.apps.baemin_clone_android.src.map.navermap.additional.interfaces.AdditionalAddressFragmentView
 import kotlinx.android.synthetic.main.fragment_additional_address.view.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.layout_mapselect_item.view.*
 
 class AdditionalAddressFragment : Fragment(), AdditionalAddressFragmentView {
     val madditionalAddressService = AdditionalAddressService(this)
     lateinit var tempaddr : String
+
+    interface movetomain1{
+        fun move()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +66,7 @@ class AdditionalAddressFragment : Fragment(), AdditionalAddressFragmentView {
             }
 
             madditionalAddressService.saveNowAddress(data)
+
         }
 
         return view
@@ -70,8 +77,17 @@ class AdditionalAddressFragment : Fragment(), AdditionalAddressFragmentView {
         val ft = (activity as MainActivity).supportFragmentManager
         ft.popBackStack()
         ft.popBackStack()
+        val backStackEntryCount: Int = (activity as MainActivity).ft.backStackEntryCount
+
+        val home = (activity as MainActivity).ft.fragments[backStackEntryCount - 2]
+        home.onResume()
+        (activity as MainActivity).ft.beginTransaction().add(home, "back")
+
+        (activity as MainActivity).closeFragment(this)
         ft.beginTransaction().remove(this).commitNow()
+
     }
+
 
 
 }

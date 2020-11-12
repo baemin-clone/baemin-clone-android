@@ -14,6 +14,7 @@ import com.professionalandroid.apps.baemin_clone_android.*
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCart
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCartShopIdx
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.interfaces.ShopDetailItemFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.models.Option
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.models.ShopDetailItemResponse
@@ -22,28 +23,32 @@ import kotlinx.android.synthetic.main.fragment_shop_detail.view.*
 import kotlinx.android.synthetic.main.fragment_shop_detail_item.*
 import kotlinx.android.synthetic.main.fragment_shop_detail_item.view.*
 
-class ShopDetailItemFragment : Fragment(), ShopDetailItemFragmentView {
+class ShopDetailItemFragment(val mlistener: ShopDetailItemFragment.ItemAdd) : Fragment(), ShopDetailItemFragmentView, ShopDetailOptionalItemRecyclerViewAdapter.ItemClicked {
 
     companion object{
         val tempShoppingList = mutableListOf<OptionArray>()
         //val tempShoppingArray = mutableListOf<OptionArray>()
     }
 
+    interface ItemAdd{
+        fun addItem()
+    }
+
     val mShopDetailItemService = ShopDetailItemService(this)
-    var menuIdx: Int? = null
     lateinit var requiredItem: MutableList<Option>
     lateinit var optionalItem: MutableList<Option>
     lateinit var mRequiredRecyclerView: RecyclerView
     lateinit var mRequiredRecyclerViewAdapter: ShopDetailRequiredItemRecyclerViewAdapter
     lateinit var mOptionalRecyclerView: RecyclerView
     lateinit var mOptionalRecyclerViewAdapter: ShopDetailOptionalItemRecyclerViewAdapter
+    lateinit var mOptionalSelectorRecyclerView: RecyclerView
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         requiredItem = mutableListOf()
         mRequiredRecyclerViewAdapter = ShopDetailRequiredItemRecyclerViewAdapter(requiredItem, context)
         optionalItem = mutableListOf()
-        mOptionalRecyclerViewAdapter = ShopDetailOptionalItemRecyclerViewAdapter(optionalItem, context)
+        mOptionalRecyclerViewAdapter = ShopDetailOptionalItemRecyclerViewAdapter(optionalItem, context, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,10 +83,31 @@ class ShopDetailItemFragment : Fragment(), ShopDetailItemFragmentView {
             shoppingCart.add(tempShoppingListItem)
             tempShoppingList.clear()
             Log.d("test", shoppingCart.joinToString())
+            mlistener.addItem()
             (activity as ShoplistActivity).closeFragment(this)
         }
 
+        view.shop_detail_item_plus.setOnClickListener {
+            val num = Integer.parseInt(view.shop_detail_item_num.text.toString())
+            shop_detail_item_num.text = (num + 1).toString()
+            shop_detail_item_num2.text = (num + 1).toString()
+            shop_detail_item_total.text = (Integer.parseInt(shop_detail_item_total.text.toString()) / num * (num + 1)).toString()
+            shop_detail_item_minus.setImageResource(R.drawable.minus_down)
+        }
 
+        view.shop_detail_item_minus.setOnClickListener {
+            val num = Integer.parseInt(view.shop_detail_item_num.text.toString())
+            if(num > 1){
+                shop_detail_item_minus.setImageResource(R.drawable.minus_down)
+                shop_detail_item_num.text = (num - 1).toString()
+                shop_detail_item_num2.text = (num - 1).toString()
+                shop_detail_item_total.text = (Integer.parseInt(shop_detail_item_total.text.toString()) / num * (num - 1)).toString()
+                shop_detail_item_minus.setImageResource(R.drawable.minus_down)
+            }
+            else{
+                shop_detail_item_minus.setImageResource(R.drawable.minus_up)
+            }
+        }
 
         return view
     }
@@ -93,6 +119,8 @@ class ShopDetailItemFragment : Fragment(), ShopDetailItemFragmentView {
             .into(shop_detail_item_img)
         shop_detail_item_title.text = body.result?.menuTitle
         shop_detail_item_description.text = body.result?.details
+        shep_detail_item_basic_price.text = body.result?.basicPrice.toString()
+        shop_detail_item_total.text = body.result?.basicPrice.toString()
         for(kind in body.result?.options!!){
             if(kind.required!!){
                 requiredItem.add(kind)
@@ -103,6 +131,18 @@ class ShopDetailItemFragment : Fragment(), ShopDetailItemFragmentView {
         }
         mRequiredRecyclerViewAdapter.notifyDataSetChanged()
         mOptionalRecyclerViewAdapter.notifyDataSetChanged()
+
+    }
+
+
+    override fun click(view: View, price: Int, check: Boolean) {
+        if(!check){
+            shop_detail_item_total.text = (Integer.parseInt(shop_detail_item_total.text.toString()) + price).toString()
+        }
+        else{
+            shop_detail_item_total.text = (Integer.parseInt(shop_detail_item_total.text.toString()) - price).toString()
+
+        }
     }
 
 }

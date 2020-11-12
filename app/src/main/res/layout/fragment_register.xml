@@ -7,8 +7,7 @@
     android:background="#ffffff"
     android:clickable="true"
     android:orientation="vertical"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
+
     tools:context=".src.login.register.RegisterFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -34,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="완료"
+            android:layout_marginRight="20dp"
             android:textColor="@color/browser_actions_title_color"
             android:layout_gravity="end" />
 
@@ -43,13 +43,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="이메일"
+        android:textStyle="bold"
         android:textSize="16sp"
-        android:layout_marginTop="30dp"/>
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="10"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
         
         <EditText
             android:id="@+id/register_email"
@@ -63,7 +70,7 @@
             android:layout_weight="2"
             android:layout_height="wrap_content"
             android:textColor="@color/browser_actions_title_color"
-            android:background="@drawable/normal_edge"
+            android:background="@drawable/normal_box_edge"
             android:text="중복확인"
             android:padding="10dp"/>
     </LinearLayout>
@@ -73,26 +80,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="35dp">
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="35dp"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/nickName"
             android:textSize="16sp"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"/>
 
-        <EditText
-            android:id="@+id/register_nicName"
-            android:layout_width="match_parent"
+        <FrameLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nickName_example"/>
+            android:layout_marginTop="9dp"
+            android:padding="5dp">
+
+           <com.professionalandroid.apps.baemin_clone_android.src.login.ClearEditText
+               android:id="@+id/register_nickName"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="@string/nickName_example" />
+
+        </FrameLayout>
         <TextView
-            android:id="@+id/register_nicName_caution"
+            android:id="@+id/register_nickName_caution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_dark"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:visibility="invisible"
+            android:textSize="13sp"
             android:text="@string/nickName_caution"/>
 
         <TextView
@@ -101,19 +125,27 @@
             android:text="비밀번호"
             android:textSize="16sp"
             android:textColor="#000000"
-            android:layout_marginTop="25dp"/>
-        <EditText
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"/>
+
+        <com.professionalandroid.apps.baemin_clone_android.src.login.ClearEditText
             android:id="@+id/register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="비밀번호를 입력해주세요"
             android:inputType="textPassword"/>
+
         <TextView
             android:id="@+id/register_password_caution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_dark"
+            android:textSize="13sp"
             android:visibility="invisible"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:text="10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2 종류를 조합해야 합니다."/>
 
         <TextView
@@ -122,8 +154,12 @@
             android:text="@string/birth"
             android:textSize="16sp"
             android:textColor="#000000"
-            android:layout_marginTop="25dp"/>
-        <EditText
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"/>
+
+        <com.professionalandroid.apps.baemin_clone_android.src.login.ClearEditText
             android:id="@+id/register_birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -135,6 +171,9 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_dark"
             android:visibility="invisible"
+            android:textSize="13sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:text="@string/birth_caution"/>
     </LinearLayout>
 

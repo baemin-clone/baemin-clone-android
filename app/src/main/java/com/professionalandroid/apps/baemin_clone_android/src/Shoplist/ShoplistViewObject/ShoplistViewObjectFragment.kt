@@ -18,7 +18,7 @@ import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.ShopDeta
 import kotlinx.android.synthetic.main.fragment_shoplist_view_object.view.*
 
 
-class ShoplistViewObjectFragment : Fragment(), ShoplistViewObjectFragmentView, ShoplistViewObjectRecyclerViewAdapter.OnLoadMoreListener {
+class ShoplistViewObjectFragment(val mlistener: ShopDetailFragment.Itemadd) : Fragment(), ShoplistViewObjectFragmentView, ShoplistViewObjectRecyclerViewAdapter.OnLoadMoreListener {
 
     private var page = 0       // 현재 페이지
     private var size = 10     // 한 번에 가져올 아이템 수
@@ -83,12 +83,12 @@ class ShoplistViewObjectFragment : Fragment(), ShoplistViewObjectFragmentView, S
     }
 
     override fun onLoadMore() {
-        mShoplistViewObjectService.getmoreShoplist(category!!, order, minAmount, tip, star, getPage(), size)
+        mShoplistViewObjectService.getmoreShoplist(category, order, minAmount, tip, star, getPage(), size)
     }
 
     override fun onItemSeledted(v: View, position: Int) {
         val viewHolder = mRecyclerView.findViewHolderForAdapterPosition(position) as ShoplistViewObjectRecyclerViewAdapter.ViewHolder
-        val shopDetailPage = ShopDetailFragment().apply {
+        val shopDetailPage = ShopDetailFragment(mlistener).apply {
             arguments = Bundle().apply {
                 putInt("shopidx", viewHolder.storeIdx!!)
             }

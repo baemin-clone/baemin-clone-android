@@ -31,6 +31,11 @@ class NaverMapFragment : Fragment(), NaverMapFragmentView, OnMapReadyCallback {
         super.onCreate(savedInstanceState)
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.d("test", "navermap_resume")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

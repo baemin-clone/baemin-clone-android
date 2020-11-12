@@ -73,7 +73,7 @@
                     android:textColor="#A8744F" />
             </LinearLayout>
 
-            <LinearLayout
+            <Spinner
                 android:id="@+id/shoplist_sort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,19 +82,12 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:paddingStart="15dp"
-                android:paddingEnd="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="기본순 "
-                    android:textColor="#000000" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/bottom_arrow"
-                    android:adjustViewBounds="true"/>
-            </LinearLayout>
-            <LinearLayout
+                android:paddingEnd="10dp"
+                android:dropDownWidth="600dp"
+                android:overlapAnchor="false">
+
+            </Spinner>
+            <Spinner
                 android:id="@+id/shoplist_min_order_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,20 +96,13 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:paddingStart="15dp"
-                android:paddingEnd="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="최소주문금액 "
-                    android:textColor="#000000" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/bottom_arrow"
-                    android:adjustViewBounds="true"/>
-            </LinearLayout>
+                android:paddingEnd="10dp"
+                android:dropDownWidth="600dp"
+                android:overlapAnchor="false">
 
-            <LinearLayout
+            </Spinner>
+
+            <Spinner
                 android:id="@+id/shoplist_tip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,18 +111,11 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:paddingStart="15dp"
-                android:paddingEnd="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="배달팁 "
-                    android:textColor="#000000" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/bottom_arrow"
-                    android:adjustViewBounds="true"/>
-            </LinearLayout>
+                android:paddingEnd="10dp"
+                android:dropDownWidth="600dp"
+                android:overlapAnchor="false">
+
+            </Spinner>
 
             <LinearLayout
                 android:id="@+id/shoplist_star"
@@ -191,5 +170,48 @@
         </LinearLayout>
 
     </HorizontalScrollView>
+
+    <FrameLayout
+        android:id="@+id/shoplist_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/shop_detail_fab"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/fab"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="8dp"
+                app:riv_corner_radius="20dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/shoplist_fab_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/circle"/>
+            <TextView
+                android:id="@+id/shoplist_fab_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_gravity="center"
+                android:textColor="#2AC1BC"/>
+        </FrameLayout>
+    </FrameLayout>
 
 </FrameLayout>

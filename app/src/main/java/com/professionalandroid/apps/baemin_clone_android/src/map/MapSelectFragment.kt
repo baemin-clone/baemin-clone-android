@@ -1,6 +1,7 @@
 package com.professionalandroid.apps.baemin_clone_android.src.map
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,12 @@ class MapSelectFragment : Fragment(), MapSelectFragmentView, MapSelectRecyclerVi
     val maplist = mutableListOf<UserLocation>()
     lateinit var mMapSelectRecyclerView: RecyclerView
     lateinit var mMapSelectRecyclerViewAdapter: MapSelectRecyclerViewAdapter
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("test", "mapselect_resume")
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

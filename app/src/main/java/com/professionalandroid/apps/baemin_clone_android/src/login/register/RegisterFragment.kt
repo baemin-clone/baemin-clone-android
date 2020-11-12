@@ -1,7 +1,10 @@
 package com.professionalandroid.apps.baemin_clone_android.src.login.register
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,6 +29,10 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
         super.onCreate(savedInstanceState)
     }
 
+
+    val mRegisterService = RegisterService(this)
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,28 +41,113 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
         (activity as LoginActivity).setSupportActionBar(view.register_toolbar)
         (activity as LoginActivity).supportActionBar?.setDisplayShowTitleEnabled(false);
         (activity as LoginActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        val registerService = RegisterService(this)
 
         view.register_check_duplicate_btn.setOnClickListener {
             val email =
                 email(view.register_email.text.toString())
-            registerService.checkDuplication(email)
+            mRegisterService.checkDuplication(email)
         }
 
-        view.register_submit_btn.setOnClickListener {
-            val newUser_data =
-                NewUserInfo(
-                    register_email.text.toString(),
-                    register_password.text.toString(),
-                    register_nicName.text.toString(),
-                    register_birth.text.toString()
-                )
-            registerService.registerNewId(newUser_data)
-        }
+//        view.register_submit_btn.setOnClickListener {
+//            val newUser_data =
+//                NewUserInfo(
+//                    register_email.text.toString(),
+//                    register_password.text.toString(),
+//                    register_nickName.text.toString(),
+//                    register_birth.text.toString()
+//                )
+//            mRegisterService.registerNewId(newUser_data)
+//        }
+
+        view.register_nickName.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val s = p0.toString()
+                if(s.length in 2 until 11){
+                    register_nickName_caution.visibility = View.INVISIBLE
+                }
+                else{
+                    register_nickName_caution.visibility = View.VISIBLE
+                }
+                validation()
+            }
+
+        })
+
+        view.register_password.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val s = p0.toString()
+                if(s.length > 10){
+                    register_password_caution.visibility = View.INVISIBLE
+                }
+                else{
+                    register_password_caution.visibility = View.VISIBLE
+                }
+                validation()
+            }
+
+        })
+
+        view.register_birth.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val s = p0.toString()
+                if(s.length == 10){
+                    register_birth_caution.visibility = View.INVISIBLE
+                }
+                else{
+                    register_birth_caution.visibility = View.VISIBLE
+                }
+                validation()
+            }
+        })
+
         return view
     }
 
+    fun validation(){
+        if(register_password_caution.visibility == View.INVISIBLE &&
+            register_nickName_caution.visibility == View.INVISIBLE &&
+            register_birth_caution.visibility == View.INVISIBLE
+        ){
+            register_submit_btn.apply {
+                setTextColor(Color.BLACK)
+                setOnClickListener {
+                    val newUser_data =
+                        NewUserInfo(
+                            register_email.text.toString(),
+                            register_password.text.toString(),
+                            register_nickName.text.toString(),
+                            register_birth.text.toString()
+                        )
+                    mRegisterService.registerNewId(newUser_data)
+                }
+            }
+        }
+        else{
+            register_submit_btn.setTextColor(Color.GRAY)
+        }
+    }
+
+
     override fun availableEmail() {
+        register_email.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.email_check, 0);
         register_input.visibility = View.VISIBLE
         Log.d("test", "visible")
     }

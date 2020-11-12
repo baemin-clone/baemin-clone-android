@@ -58,7 +58,7 @@
                 android:layout_height="50dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/search"
-                android:background="@drawable/normal_edge"
+                android:background="@drawable/normal_box_edge"
                 android:padding="10dp"/>
 
             <ImageView

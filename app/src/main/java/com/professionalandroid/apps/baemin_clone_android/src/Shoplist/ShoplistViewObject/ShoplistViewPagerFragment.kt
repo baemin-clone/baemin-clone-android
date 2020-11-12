@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.professionalandroid.apps.baemin_clone_android.R
+import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.ShopDetailFragment
 import kotlinx.android.synthetic.main.fragment_shoplist_view_pager.view.*
 
-class ShoplistViewPagerFragment() : Fragment() {
+class ShoplistViewPagerFragment(val mlistener: ShopDetailFragment.Itemadd) : Fragment() {
     // When requested, this adapter returns a DemoObjectFragment,
     // representing an object in the collection.
     private lateinit var shoplistviewpagerAdapter: ShoplistViewpagerAdapter
@@ -49,7 +50,8 @@ class ShoplistViewPagerFragment() : Fragment() {
             ShoplistViewpagerAdapter(
                 tabLayoutTextArray,
                 position!!,
-                this
+                this,
+                mlistener
             )
 
         viewPager = view.shoplist_viewpager

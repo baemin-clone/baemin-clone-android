@@ -9,6 +9,9 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.bumptech.glide.Glide
+import com.professionalandroid.apps.baemin_clone_android.InfoChange
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.sSharedPreferences
@@ -26,13 +29,22 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
 
-class ModifyMyinfoFragment : Fragment(), ModifyMyinfoFragmentView , CustomPopupDialog.CustomDialogClickListener{
+class ModifyMyinfoFragment() : Fragment(), ModifyMyinfoFragmentView , CustomPopupDialog.CustomDialogClickListener{
 
     lateinit var customPopupDialog: CustomPopupDialog
+    lateinit var mlistener: Logout
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         customPopupDialog = CustomPopupDialog(context, this)
+    }
+
+    interface Logout{
+        fun logout()
+    }
+
+    constructor(listener: Logout):this(){
+        this.mlistener = listener
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +61,6 @@ class ModifyMyinfoFragment : Fragment(), ModifyMyinfoFragmentView , CustomPopupD
         (activity as MainActivity).setSupportActionBar(view.modify_myinfo_toolbar)
         (activity as MainActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
         (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
 
         val modifyMyinfoService = ModifyMyinfoService(this)
 
@@ -90,18 +101,18 @@ class ModifyMyinfoFragment : Fragment(), ModifyMyinfoFragmentView , CustomPopupD
             val file1: MultipartBody.Part =
                 MultipartBody.Part.createFormData("img", originalFile1.name, filePart1)
 
+            val data = InfoChange(modify_myinfo_nickname.text.toString(), modify_myinfo_pwd.text.toString())
+            modifyMyinfoService.change(data)
             modifyMyinfoService.savephoto(file1)
-            (activity as MainActivity).closeFragment(this
-            )
+            (activity as MainActivity).closeFragment(this)
         }
-
-
         return view
     }
 
     override fun onDestroy() {
         super.onDestroy()
         (activity as MainActivity).showBottomeNav()
+
     }
 
     // backbtn on tab bar
@@ -121,21 +132,22 @@ class ModifyMyinfoFragment : Fragment(), ModifyMyinfoFragmentView , CustomPopupD
             remove(X_ACCESS_TOKEN)
             apply()
         }
-        val ft = (activity as MainActivity).supportFragmentManager
-        ft.popBackStack()
-        ft.beginTransaction().remove(this).commitNow()
+
+        mlistener.logout()
+        (activity as MainActivity).closeFragment(this)
+
     }
 
-    override fun putUserdata(nickname: String?, email: String?, phone: String?) {
+    override fun putUserdata(nickname: String?, profileImg:String, email: String?, phone: String?) {
         modify_myinfo_nickname.setText(nickname)
         modify_myinfo_email.text = email
+        Glide.with(this)
+            .load(profileImg)
+            .centerCrop()
+            .into(modify_myinfo_profile_img)
         modify_myinfo_phone1.text = phone?.slice(IntRange(0,2))
         modify_myinfo_phone2.text = phone?.slice(IntRange(4,7))
         modify_myinfo_phone3.text = phone?.slice(IntRange(9,12))
-    }
-
-    override fun savePhoto(body: ProfilePictureResponse) {
-        (activity as MainActivity?)?.closeFragment(this)
     }
 
     override fun clickCamera() {
@@ -145,5 +157,7 @@ class ModifyMyinfoFragment : Fragment(), ModifyMyinfoFragmentView , CustomPopupD
     override fun clickGallery() {
         (activity as MainActivity).getPhotoFromMyGallary()
     }
+
+
 
 }

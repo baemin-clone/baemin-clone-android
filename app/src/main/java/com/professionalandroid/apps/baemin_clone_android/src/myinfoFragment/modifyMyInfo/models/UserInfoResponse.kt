@@ -9,6 +9,7 @@ data class UserInfoResponse (
 
 data class Result (
     val nickname: String,
+    val profilePath: String,
     val email: String,
     val phone: String
 )

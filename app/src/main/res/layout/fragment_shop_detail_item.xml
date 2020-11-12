@@ -37,7 +37,8 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/search"
-            android:layout_gravity="end"/>
+            android:layout_gravity="end"
+            android:layout_marginRight="15dp"/>
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -121,9 +122,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
+                    android:id="@+id/shep_detail_item_basic_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1,3000원"
+                    android:text="0원"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#000000"
@@ -149,32 +151,85 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20sp"
+                android:layout_height="75dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shoppingCart_item_title_layout"
                 android:background="#ffffff"
-                android:orientation="horizontal">
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
                 <TextView
+                    android:id="@+id/shoppingCart_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="수량"
                     android:textColor="#000000"
-                    android:textSize="20sp"
                     android:textStyle="bold"
+                    android:textSize="15dp"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
 
-                <TextView
-                    android:id="@+id/shop_detail_item_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="170dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@drawable/normal_edge">
+
+
+                    <ImageView
+                        android:id="@+id/shop_detail_item_minus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/minus_up"
+                        android:layout_marginLeft="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+                        <TextView
+                            android:id="@+id/shop_detail_item_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:text="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="개"
+                            android:textSize="15sp"
+                            android:textColor="#000000"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/shop_detail_item_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/plus_down"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginRight="10dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
@@ -183,7 +238,7 @@
                 android:text="메뉴 사진은 연출된 이미지로 실제 조리된 음식과 다를 수 있습니다."
                 android:textSize="11dp"
                 android:gravity="center"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="110dp"
                 />
 
         </LinearLayout>
@@ -232,6 +287,7 @@
             android:id="@+id/shop_detail_item_submit_btn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_margin="10dp"
             android:background="@drawable/round_button2"
             app:layout_constraintBottom_toBottomOf="parent"
             android:padding="20dp">
@@ -244,6 +300,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:orientation="horizontal">
             <TextView
+                android:id="@+id/shop_detail_item_num2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -267,12 +324,13 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/shop_detail_item_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textColor="#ffffff"
                     android:textSize="16sp"
-                    android:text="38,000"/>
+                    android:text="0"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

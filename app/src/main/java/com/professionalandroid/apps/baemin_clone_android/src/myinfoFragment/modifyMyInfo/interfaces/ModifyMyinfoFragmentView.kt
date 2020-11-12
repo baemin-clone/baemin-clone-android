@@ -5,6 +5,5 @@ import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.modi
 interface ModifyMyinfoFragmentView
 {
     fun deletejwt()
-    fun putUserdata(nickname:String?, email: String?, phone: String?)
-    fun savePhoto(body: ProfilePictureResponse)
+    fun putUserdata(nickname:String?, profileImg:String, email: String?, phone: String?)
 }

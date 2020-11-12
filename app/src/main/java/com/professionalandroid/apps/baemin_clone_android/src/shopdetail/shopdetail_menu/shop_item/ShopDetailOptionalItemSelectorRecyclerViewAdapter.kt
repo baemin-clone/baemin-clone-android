@@ -17,12 +17,18 @@ class ShopDetailOptionalItemSelectorRecyclerViewAdapter(): RecyclerView.Adapter<
 
     lateinit var optionalItem : List<Content?>
     lateinit var mcontext: Context
+    lateinit var mlistener: ItemChecked
     var groupIdx: Int? = null
 
-    constructor(optionalItem:List<Content?>, context:Context, groupidx: Int):this(){
+    interface ItemChecked{
+        fun check(view:View, position: Int)
+    }
+
+    constructor(optionalItem:List<Content?>, context:Context, groupidx: Int, listener: ItemChecked):this(){
         this.optionalItem = optionalItem
         mcontext = context
         groupIdx = groupidx
+        mlistener = listener
     }
 
     inner class SubViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -38,6 +44,7 @@ class ShopDetailOptionalItemSelectorRecyclerViewAdapter(): RecyclerView.Adapter<
 
             // add and delete option
             parentview.setOnClickListener {
+                mlistener.check(view, adapterPosition)
                 optionalCheckbox?.isChecked = !optionalCheckbox?.isChecked!!
                 if(optionalCheckbox?.isChecked!!){
                     var k = false

@@ -65,9 +65,6 @@ class ShoppingCartService (val mShoppingCartFragmentView: ShoppingCartFragmentVi
             override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
                 val body = response.body()
                 Log.d("test", body.toString())
-                if(body?.code == 200){
-                    mShoppingCartFragmentView.order(body)
-                }
             }
 
         })

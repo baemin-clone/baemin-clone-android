@@ -36,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="완료"
+            android:textSize="16sp"
             android:layout_gravity="end"
             android:layout_marginEnd="10dp"/>
 
@@ -78,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="고마운분"
-                    android:textSize="11sp"
+                    android:textSize="13sp"
                     android:textColor="#2AC1BC"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -96,7 +97,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:background="@drawable/normal_edge"
+                android:background="@drawable/normal_box_edge"
                 android:hint="닉네임"/>
 
 
@@ -152,6 +153,7 @@
                     android:textColor="#000000"
                     android:textStyle="bold"/>
                 <EditText
+                    android:id="@+id/modify_myinfo_pwd"
                     android:layout_width="0dp"
                     android:layout_weight="5"
                     android:layout_height="match_parent"
@@ -188,6 +190,7 @@
                         android:text="휴대폰 인증"
                         android:textSize="17sp"
                         android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
                         android:textColor="#000000"/>
                     <TextView
                         android:layout_width="wrap_content"

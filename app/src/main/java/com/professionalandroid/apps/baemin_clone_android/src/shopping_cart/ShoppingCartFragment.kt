@@ -26,19 +26,22 @@ import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.model
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.models.ShoppingCartItem
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.models.ShoppingCartItemResponse
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.models.ShoppingCartShopResponse
+import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.order.OrderFragment
 import kotlinx.android.synthetic.main.fragment_shopping_cart.*
 import kotlinx.android.synthetic.main.fragment_shopping_cart.view.*
+import kotlinx.android.synthetic.main.layout_shoppingcart_item.*
 
-class ShoppingCartFragment : Fragment(), ShoppingCartFragmentView {
+class ShoppingCartFragment : Fragment(), ShoppingCartFragmentView, ShoppingCartRecyclerViewAdapter.OnButtonSelected {
 
     val mShoppingCartService = ShoppingCartService(this)
     val cartlist = mutableListOf<ShoppingCartItem>()
     lateinit var mShoppingCartRecyclerView: RecyclerView
     lateinit var mShoppingCartRecyclerViewAdapter: ShoppingCartRecyclerViewAdapter
+    var totalprice = 0
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mShoppingCartRecyclerViewAdapter = ShoppingCartRecyclerViewAdapter(cartlist, context)
+        mShoppingCartRecyclerViewAdapter = ShoppingCartRecyclerViewAdapter(cartlist, context, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,12 +61,16 @@ class ShoppingCartFragment : Fragment(), ShoppingCartFragmentView {
 
         mShoppingCartService.shoppingCartTitle(shoppingCartShopIdx)
 
+        var totalnum = 0
         for(i in shoppingCart){
             val temp = ShoppingCart(shoppingCartShopIdx, i.menuidx, i.optionArray)
             val num = i.menuNum
             Log.d("test", temp.toString())
+            totalnum += num
             mShoppingCartService.shoppingCartItem(temp, num)
         }
+
+        view.shoppingCart_num.text = totalnum.toString()
 
         view.shoppingCart_submit_btn.setOnClickListener {
 
@@ -78,8 +85,15 @@ class ShoppingCartFragment : Fragment(), ShoppingCartFragmentView {
             }
             val temp1 = Order(shoppingCartShopIdx, "배달", temp2)
             mShoppingCartService.order(temp1)
-        }
 
+            val orderPage = OrderFragment().apply {
+                arguments = Bundle().apply {
+                    putString("price", view.shoppingCart_total_price.text.toString())
+                }
+            }
+            (activity as ShoplistActivity).addFragment(orderPage)
+
+        }
         return view
     }
 
@@ -93,17 +107,43 @@ class ShoppingCartFragment : Fragment(), ShoppingCartFragmentView {
     }
 
     override fun shoppingCartItem(body: ShoppingCartItemResponse, num: Int) {
+        totalprice += body.result.price
+        shoppingCart_total_price.text = totalprice.toString()
+        shoppingCart_total_price2.text = totalprice.toString()
         cartlist.add(ShoppingCartItem(body, num))
         mShoppingCartRecyclerViewAdapter.notifyDataSetChanged()
 
+
     }
 
-    override fun order(body: OrderResponse) {
-        Toast.makeText(context, "주문이 완료되었습니다.", Toast.LENGTH_SHORT).show()
-        login_status = false
-        val intent = Intent(context, MainActivity::class.java)
-        startActivity(intent)
-        (activity as ShoplistActivity).finishAffinity()
+    override fun plus(v: View, position: Int) {
+        val viewHolder = mShoppingCartRecyclerView.findViewHolderForAdapterPosition(position) as ShoppingCartRecyclerViewAdapter.ViewHolder
+        val num = Integer.parseInt(viewHolder.itemnum?.text.toString())
+        val price = Integer.parseInt(viewHolder.itemprice?.text.toString()) / num
+        viewHolder.itemnum?.text = (num + 1).toString()
+        viewHolder.itemprice?.text = (Integer.parseInt(viewHolder.itemprice?.text.toString()) + price).toString()
+        viewHolder.minusButton?.setImageResource(R.drawable.minus_down)
+        shoppingCart_num.text = (Integer.parseInt(shoppingCart_num.text.toString()) + 1).toString()
+        shoppingCart_total_price2.text = (Integer.parseInt(shoppingCart_total_price2.text.toString()) + price).toString()
+        shoppingCart_total_price.text = (Integer.parseInt(shoppingCart_total_price.text.toString()) + price).toString()
+    }
+
+    override fun minus(v: View, position: Int) {
+        val viewHolder = mShoppingCartRecyclerView.findViewHolderForAdapterPosition(position) as ShoppingCartRecyclerViewAdapter.ViewHolder
+        val num = Integer.parseInt(viewHolder.itemnum?.text.toString())
+        val price = Integer.parseInt(viewHolder.itemprice?.text.toString()) / num
+        if(num > 1){
+            viewHolder.minusButton?.setImageResource(R.drawable.minus_down)
+            viewHolder.itemnum?.text = (num - 1).toString()
+            viewHolder.itemprice?.text = (Integer.parseInt(viewHolder.itemprice?.text.toString()) - price).toString()
+            shoppingCart_num.text = (Integer.parseInt(shoppingCart_num.text.toString()) - 1).toString()
+            shoppingCart_total_price2.text = (Integer.parseInt(shoppingCart_total_price2.text.toString()) - price).toString()
+            shoppingCart_total_price.text = (Integer.parseInt(shoppingCart_total_price.text.toString()) - price).toString()
+        }
+        else{
+            viewHolder.minusButton?.setImageResource(R.drawable.minus_up)
+        }
+
     }
 
 

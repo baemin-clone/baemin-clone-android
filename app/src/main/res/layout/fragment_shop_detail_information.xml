@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가게 소개"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginBottom="10dp"/>
@@ -29,6 +30,7 @@
             android:id="@+id/shop_detail_information_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15dp"
             android:textColor="#000000"/>
 
     </LinearLayout>
@@ -46,6 +48,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="안내 및 혜택"
+           android:textSize="15dp"
            android:textStyle="bold"
            android:textColor="#000000"
            android:layout_marginBottom="10dp"/>
@@ -54,6 +57,7 @@
            android:id="@+id/shop_detail_information_guide"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:textSize="15dp"
            android:textColor="#000000"/>
 
    </LinearLayout>
@@ -70,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가게 통계"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginBottom="10dp"/>
@@ -83,6 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="최근 주문수"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -92,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3000+"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -108,6 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="전체 리뷰수"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -117,6 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1,015"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -133,6 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="찜"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -142,6 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="833"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -166,6 +177,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="영업 정보"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginBottom="10dp"/>
@@ -179,6 +191,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="운영 시간"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -188,6 +201,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="평일, 토요일 - 오전 12: 00 ~ 익일 밤 12:30"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -204,6 +218,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="휴무일"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -213,6 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="연중무휴"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -229,6 +245,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="전화번호"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -238,6 +255,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="050-6672-6019"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -255,6 +273,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="배달지역"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -263,6 +282,7 @@
                 android:id="@+id/shop_detail_information_delivery_zone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15dp"
                 android:text="신설동,홍길동,신풍동,행궁동~~"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -286,6 +306,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="배달팁 안내"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginBottom="10dp"/>
@@ -294,6 +315,7 @@
             android:id="@+id/shop_detail_information_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15dp"
             android:textColor="#000000"/>
 
     </LinearLayout>
@@ -310,6 +332,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="사업자 정보"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginBottom="10dp"/>
@@ -318,6 +341,7 @@
             android:id="@+id/shop_detail_information_bussiness"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15dp"
             android:textColor="#000000"/>
 
     </LinearLayout>
