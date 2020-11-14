@@ -157,6 +157,7 @@ class RegisterFragment : Fragment(), RegisterFragmentView {
         login_status = true
         val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
+        (activity as LoginActivity).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         (activity as LoginActivity).finishAffinity()
     }
 

@@ -66,3 +66,12 @@ data class InfoChange(
     val nickname: String?,
     val pwd: String?
 )
+
+data class PhoneRecognization(
+    val authNum:String,
+    val phoneNumber:String
+)
+
+data class PhoneNumber(
+    val phoneNumber:String
+)

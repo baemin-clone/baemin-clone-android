@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import com.professionalandroid.apps.baemin_clone_android.R
+import com.professionalandroid.apps.baemin_clone_android.src.login.recognize.RecognizeFragment
 import com.professionalandroid.apps.baemin_clone_android.src.login.register.RegisterFragment
 import com.professionalandroid.apps.baemin_clone_android.src.login.socialregister.SocialRegisterFragment
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
@@ -84,8 +85,8 @@ class AgreementFragment : Fragment() {
             agreement_next_btn.apply {
                 setBackgroundResource(R.drawable.round_button2)
                 setOnClickListener {
-                    val registerPage =
-                        RegisterFragment()
+                    val recognizePage =
+                        RecognizeFragment()
                     val socialregisterPage =
                         SocialRegisterFragment().apply {
                             arguments = Bundle().apply {
@@ -93,7 +94,7 @@ class AgreementFragment : Fragment() {
                             }
                         }
                     when(kinds) {
-                        "general" -> (activity as LoginActivity).addFragment(registerPage)
+                        "general" -> (activity as LoginActivity).addFragment(recognizePage)
                         "naver" -> (activity as LoginActivity).addFragment(socialregisterPage)
                     }
                 }
@@ -108,8 +109,8 @@ class AgreementFragment : Fragment() {
             agreement_next_btn.apply {
                 setBackgroundResource(R.drawable.round_button2)
                 setOnClickListener {
-                    val registerPage =
-                        RegisterFragment()
+                    val recognizePage =
+                        RecognizeFragment()
                     val socialregisterPage =
                         SocialRegisterFragment().apply {
                             arguments = Bundle().apply {
@@ -117,7 +118,7 @@ class AgreementFragment : Fragment() {
                             }
                         }
                     when(kinds) {
-                        "general" -> (activity as LoginActivity).addFragment(registerPage)
+                        "general" -> (activity as LoginActivity).addFragment(recognizePage)
                         "naver" -> (activity as LoginActivity).addFragment(socialregisterPage)
                     }
                 }

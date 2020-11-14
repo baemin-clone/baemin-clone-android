@@ -15,7 +15,6 @@ import com.professionalandroid.apps.baemin_clone_android.src.bookmark.interfaces
 import com.professionalandroid.apps.baemin_clone_android.src.bookmark.models.BookmarkPageResponse
 import com.professionalandroid.apps.baemin_clone_android.src.bookmark.models.Result
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
-import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.ShopDetailFragment
 import kotlinx.android.synthetic.main.fragment_first_bookmark.*
 import kotlinx.android.synthetic.main.fragment_first_bookmark.view.*
 
@@ -70,6 +69,8 @@ class FirstBookmarkFragment : Fragment(), FirstBookmarkFragmentView, FirstBookma
         val intent = Intent(context, ShoplistActivity::class.java)
         intent.putExtra("shopidx", viewHolder.storeIdx)
         startActivity(intent)
+        (activity as MainActivity).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
     }
 
 

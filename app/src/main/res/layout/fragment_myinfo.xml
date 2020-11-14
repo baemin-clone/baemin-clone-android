@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/myinfo_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:theme="@style/ToolbarTheme"
             android:contentInsetLeft="0dp"
             android:contentInsetStart="0dp"
@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="My배민"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
 
@@ -164,12 +164,12 @@
             android:layout_height="wrap_content"
             android:src="@drawable/myinfo_ads"
             android:adjustViewBounds="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:padding="15dp"
             android:background="#ffffff"
             android:layout_marginBottom="1dp">
@@ -178,7 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="배민페이 등록"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -202,7 +202,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:padding="15dp"
             android:background="#ffffff"
             android:layout_marginBottom="1dp">
@@ -210,7 +210,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="공지사항"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -226,7 +226,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:padding="15dp"
             android:background="#ffffff"
             android:layout_marginBottom="1dp">
@@ -234,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이벤트"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -250,7 +250,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:padding="15dp"
             android:background="#ffffff"
             android:layout_marginBottom="1dp">
@@ -258,7 +258,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="고객센터"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -274,7 +274,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:padding="15dp"
             android:background="#ffffff"
             android:layout_marginBottom="1dp">
@@ -282,7 +282,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="환경설정"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -298,7 +298,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:padding="15dp"
             android:background="#ffffff"
             android:layout_marginBottom="1dp">
@@ -306,7 +306,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="현재 버전 10.14.0"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textColor="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"

@@ -19,6 +19,7 @@ import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.delive
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.delivery.models.RecommendationResponse
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.delivery.models.Result
 import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.delivery.models.Result1
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_delivery.view.*
 
 class DeliveryFragment() : Fragment(), DeliveryFragmentView {
@@ -121,6 +122,7 @@ class DeliveryFragment() : Fragment(), DeliveryFragmentView {
         val intent = Intent(activity, ShoplistActivity()::class.java)
         intent.putExtra("kind", kind)
         startActivity(intent)
+            (activity as MainActivity).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
     private val btnClickListener =
         View.OnClickListener { v ->

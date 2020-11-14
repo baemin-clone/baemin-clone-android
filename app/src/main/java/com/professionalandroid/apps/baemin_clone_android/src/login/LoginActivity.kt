@@ -78,12 +78,12 @@ class LoginActivity : BaseActivity(), LoginActivityView {
         finishAffinity()
     }
 
-    override fun isAlreadyRegistered(code: Int, token: String, jwt: String) {
+    override fun isAlreadyRegistered(code: Int, token: String, jwt: String?) {
         when(code){
             // Existing User
             1 -> {
                 Log.d("test", "이미 가입된 유저")
-                saveJwt(jwt)
+                saveJwt(jwt!!)
                 successLogin()
             }
             // New User

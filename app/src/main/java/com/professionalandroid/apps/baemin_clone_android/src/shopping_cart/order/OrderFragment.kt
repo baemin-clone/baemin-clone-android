@@ -12,6 +12,7 @@ import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_address
+import kotlinx.android.synthetic.main.activity_shoplist.*
 import kotlinx.android.synthetic.main.fragment_order.view.*
 
 class OrderFragment : Fragment() {
@@ -30,6 +31,11 @@ class OrderFragment : Fragment() {
 
         val totalPrice = arguments?.getString("price", "ddd")
         Log.d("test", totalPrice!!)
+        (activity as ShoplistActivity).setSupportActionBar(view.shop_order_toolbar)
+        (activity as ShoplistActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
+        (activity as ShoplistActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
 
         view.order_addr.text = user_address
         view.order_price.text = totalPrice

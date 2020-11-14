@@ -51,6 +51,7 @@ class MyinfoFragment : Fragment(),ModifyMyinfoFragment.Logout {
             else{
                 val intent = Intent(activity, LoginActivity::class.java)
                 startActivity(intent)
+                (activity as MainActivity).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             }
         }
 

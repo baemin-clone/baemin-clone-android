@@ -8,6 +8,7 @@ import com.professionalandroid.apps.baemin_clone_android.ShoppingItem
 import com.professionalandroid.apps.baemin_clone_android.src.BaseActivity
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistViewObject.ShoplistViewPagerFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.ShopDetailFragment
+import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.ShoppingCartFragment
 import kotlinx.android.synthetic.main.activity_shoplist.*
 
 class ShoplistActivity() : BaseActivity(), ShopDetailFragment.Itemadd {
@@ -103,8 +104,14 @@ class ShoplistActivity() : BaseActivity(), ShopDetailFragment.Itemadd {
 
     override fun floateFab() {
         if(shoppingCart.isNotEmpty()){
-            shoplist_fab.visibility = View.VISIBLE
+            shoplist_fab.apply {
+                setOnClickListener {
+                    val shoppingCartPage = ShoppingCartFragment()
+                    addFragment(shoppingCartPage)
+                }
+                visibility = View.VISIBLE}
             shoplist_fab_count.text = shoppingCart.size.toString()
+
         }
         else{
             shoplist_fab.visibility = View.GONE

@@ -26,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="배달의민족 시작하기"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:layout_gravity="center"/>
 
@@ -71,8 +72,7 @@
             android:id="@+id/social_register_birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/birth_example"
-            android:inputType="date"/>
+            android:hint="@string/birth_example"/>
         <TextView
             android:id="@+id/social_register_birth_caution"
             android:layout_width="match_parent"

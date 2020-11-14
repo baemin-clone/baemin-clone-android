@@ -227,7 +227,7 @@
         <Button
             android:id="@+id/agreement_next_btn"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_gravity="bottom"
             android:text="다음으로"
             android:textStyle="bold"

@@ -13,7 +13,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/register_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:theme="@style/ToolbarTheme"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="회원가입"
-            android:textSize="17sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:layout_gravity="center"/>
 
@@ -71,8 +71,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/browser_actions_title_color"
             android:background="@drawable/normal_box_edge"
-            android:text="중복확인"
-            android:padding="10dp"/>
+            android:text="중복확인"/>
     </LinearLayout>
     
     <LinearLayout
@@ -163,8 +162,7 @@
             android:id="@+id/register_birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/birth_example"
-            android:inputType="date"/>
+            android:hint="@string/birth_example"/>
         <TextView
             android:id="@+id/register_birth_caution"
             android:layout_width="match_parent"

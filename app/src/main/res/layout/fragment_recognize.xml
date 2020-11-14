@@ -1,14 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".src.login.recognize.RecognizeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/recognize_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:theme="@style/ToolbarTheme"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:elevation="1dp">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/recognize_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="휴대전화"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+            <com.professionalandroid.apps.baemin_clone_android.src.login.ClearEditText
+                android:id="@+id/recognize_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="010-000-0000"
+                android:layout_marginTop="20dp"/>
+
+
+            <TextView
+                android:id="@+id/recognize_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="휴대전화"
+                android:visibility="gone"
+                android:layout_marginTop="40dp"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/recognize_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="인증번호를 알려주세요"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"/>
+
+
+            <Button
+                android:id="@+id/recognize_submit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/normal_box_edge"
+                android:text="인증번호 받기"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/browser_actions_title_color"/>
+
+            <TextView
+                android:id="@+id/recognize_reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="인증번호 다시 받기"
+                android:textColor="#2AC1BC"
+                android:visibility="gone"
+                android:gravity="end"
+                android:layout_marginTop="30dp"/>
+        </LinearLayout>
+</LinearLayout>

@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="13dp">
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:layout_marginBottom="1dp">
     <TextView
         android:id="@+id/old_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="지번 주소"
-        android:layout_marginBottom="5dp"
         android:textSize="15sp"
         android:textColor="#000000"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="도로명"
         android:textSize="13sp"
-        android:padding="5dp"
+        android:padding="1dp"
         android:background="@drawable/normal_box_edge"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/old_address"

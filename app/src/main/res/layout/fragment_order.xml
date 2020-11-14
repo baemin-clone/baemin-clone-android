@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/shop_detail_toolbar"
+            android:id="@+id/shop_order_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:theme="@style/ToolbarTheme"
             android:contentInsetLeft="0dp"
             android:contentInsetStart="0dp"
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="주문하기"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_gravity="center" />
 
@@ -37,7 +37,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="5dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -726,8 +726,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:text="위 내용을 확인하였으며 결제에 동의합니다."
+            android:paddingBottom="10dp"
             android:gravity="center"/>
 
 

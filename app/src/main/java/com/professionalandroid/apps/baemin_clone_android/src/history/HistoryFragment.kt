@@ -14,6 +14,7 @@ import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistAc
 import com.professionalandroid.apps.baemin_clone_android.src.history.interfaces.HistoryFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.history.models.HistoryResponse
 import com.professionalandroid.apps.baemin_clone_android.src.history.models.Result
+import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history.view.*
 
@@ -65,6 +66,7 @@ class HistoryFragment : Fragment(), HistoryFragmentView, HistoryRecyclerViewAdap
         val intent = Intent(context, ShoplistActivity::class.java)
         intent.putExtra("shopidx", viewHolder.historyIdx)
         startActivity(intent)
+        (activity as MainActivity).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
 }

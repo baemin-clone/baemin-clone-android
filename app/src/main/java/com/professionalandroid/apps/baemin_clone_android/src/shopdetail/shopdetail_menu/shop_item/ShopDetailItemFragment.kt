@@ -14,12 +14,9 @@ import com.professionalandroid.apps.baemin_clone_android.*
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCart
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCartShopIdx
-import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.interfaces.ShopDetailItemFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.models.Option
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.models.ShopDetailItemResponse
-import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.ShoppingCartFragment
-import kotlinx.android.synthetic.main.fragment_shop_detail.view.*
 import kotlinx.android.synthetic.main.fragment_shop_detail_item.*
 import kotlinx.android.synthetic.main.fragment_shop_detail_item.view.*
 
@@ -27,7 +24,6 @@ class ShopDetailItemFragment(val mlistener: ShopDetailItemFragment.ItemAdd) : Fr
 
     companion object{
         val tempShoppingList = mutableListOf<OptionArray>()
-        //val tempShoppingArray = mutableListOf<OptionArray>()
     }
 
     interface ItemAdd{

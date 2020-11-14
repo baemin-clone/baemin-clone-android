@@ -53,7 +53,7 @@ class LoginService(private val mLoginActivityView: LoginActivityView) {
                 response: Response<DefaultResponse>
             ) {
                 Log.d("naverLogin", response.body().toString())
-                mLoginActivityView.isAlreadyRegistered(response.body()!!.code, data.accessToken, response.body()?.result?.jwt!!)
+                mLoginActivityView.isAlreadyRegistered(response.body()!!.code, data.accessToken, response.body()?.result?.jwt)
             }
         })
     }

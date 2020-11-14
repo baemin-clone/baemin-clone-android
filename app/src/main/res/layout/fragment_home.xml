@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/home_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:theme="@style/ToolbarTheme"
             android:contentInsetLeft="0dp"
             android:contentInsetStart="0dp"
@@ -42,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="주소위치"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     app:layout_constraintLeft_toRightOf="@id/home_bell"
@@ -66,8 +66,8 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/home_tab"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:tabIndicatorHeight="8dp"
+            android:layout_height="50dp"
+            app:tabIndicatorHeight="6dp"
             app:tabIndicatorColor="#2AC1BC"
             app:tabTextColor="#000000"
             app:tabSelectedTextColor="#2AC1BC"

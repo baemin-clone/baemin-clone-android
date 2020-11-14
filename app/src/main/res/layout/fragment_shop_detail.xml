@@ -24,7 +24,7 @@
                 android:background="#ffffff"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="50dp"
                 android:elevation="6dp">
                 <TextView
                     android:id="@+id/shop_detail_title"
@@ -305,7 +305,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/shop_detail_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:theme="@style/ToolbarTheme"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
@@ -318,7 +318,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="메뉴이름"
-            android:textSize="17sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:layout_gravity="center" />
 
@@ -328,7 +328,8 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/search"
-            android:layout_gravity="end"/>
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"/>
 
 
     </androidx.appcompat.widget.Toolbar>

@@ -49,7 +49,7 @@
                     <ImageView
                         android:id="@+id/home_present"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_present"
                         app:layout_constraintBottom_toTopOf="@id/home_present_guide"
@@ -81,7 +81,7 @@
                     <ImageView
                         android:id="@+id/home_bmart"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_bmart"
                         app:layout_constraintBottom_toTopOf="@id/home_bmart_guide"
@@ -111,7 +111,7 @@
                     <ImageView
                         android:id="@+id/home_thunder"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_thunder"
                         app:layout_constraintBottom_toTopOf="@id/home_thunder_guide"
@@ -141,7 +141,7 @@
                     <ImageView
                         android:id="@+id/home_riders"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_riders"
                         app:layout_constraintBottom_toTopOf="@id/home_riders_guide"
@@ -182,7 +182,7 @@
                     <ImageView
                         android:id="@+id/home_visit"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_visit"
                         app:layout_constraintBottom_toTopOf="@id/home_visit_guide"
@@ -214,7 +214,7 @@
                     <ImageView
                         android:id="@+id/home_for1"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_for1"
                         app:layout_constraintBottom_toTopOf="@id/home_for1_guide"
@@ -244,7 +244,7 @@
                     <ImageView
                         android:id="@+id/home_korea"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_korea"
                         app:layout_constraintBottom_toTopOf="@id/home_home_korea_guide"
@@ -274,7 +274,7 @@
                     <ImageView
                         android:id="@+id/home_dduck"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_dduck"
                         app:layout_constraintBottom_toTopOf="@id/home_dduck_guide"
@@ -316,7 +316,7 @@
                     <ImageView
                         android:id="@+id/home_cafe"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_cafe"
                         app:layout_constraintBottom_toTopOf="@id/home_cafe_guide"
@@ -348,7 +348,7 @@
                     <ImageView
                         android:id="@+id/home_japan"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_japan"
                         app:layout_constraintBottom_toTopOf="@id/home_japan_guide"
@@ -378,7 +378,7 @@
                     <ImageView
                         android:id="@+id/home_chicken"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_chiken"
                         app:layout_constraintBottom_toTopOf="@id/home_home_chicken_guide"
@@ -408,7 +408,7 @@
                     <ImageView
                         android:id="@+id/home_pizza"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_pizza"
                         app:layout_constraintBottom_toTopOf="@id/home_pizza_guide"
@@ -449,7 +449,7 @@
                     <ImageView
                         android:id="@+id/home_asia"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_asia"
                         app:layout_constraintBottom_toTopOf="@id/home_asia_guide"
@@ -481,7 +481,7 @@
                     <ImageView
                         android:id="@+id/home_china"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_china"
                         app:layout_constraintBottom_toTopOf="@id/home_china_guide"
@@ -511,7 +511,7 @@
                     <ImageView
                         android:id="@+id/home_bossam"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_bossam"
                         app:layout_constraintBottom_toTopOf="@id/home_home_bossam_guide"
@@ -541,7 +541,7 @@
                     <ImageView
                         android:id="@+id/home_night"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_night"
                         app:layout_constraintBottom_toTopOf="@id/home_night_guide"
@@ -583,7 +583,7 @@
                     <ImageView
                         android:id="@+id/home_soup"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_soup"
                         app:layout_constraintBottom_toTopOf="@id/home_soup_guide"
@@ -615,7 +615,7 @@
                     <ImageView
                         android:id="@+id/home_dosirok"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_dosirok"
                         app:layout_constraintBottom_toTopOf="@id/home_dosirok_guide"
@@ -645,7 +645,7 @@
                     <ImageView
                         android:id="@+id/home_fastfood"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_fastfood"
                         app:layout_constraintBottom_toTopOf="@id/home_home_fastfood_guide"
@@ -675,7 +675,7 @@
                     <ImageView
                         android:id="@+id/home_franchise"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_franchise"
                         app:layout_constraintBottom_toTopOf="@id/home_franchise_guide"
@@ -717,7 +717,7 @@
                     <ImageView
                         android:id="@+id/home_ranking"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_ranking"
                         app:layout_constraintBottom_toTopOf="@id/home_ranking_guide"
@@ -749,7 +749,7 @@
                     <ImageView
                         android:id="@+id/home_best"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/home_best"
                         app:layout_constraintBottom_toTopOf="@id/home_best_guide"
@@ -970,7 +970,7 @@
             android:background="#ffffff"
             android:paddingTop="30dp"
             android:paddingBottom="30dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:layout_width="120dp"
@@ -992,7 +992,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="#ffffff"
-            android:padding="20dp"
+            android:padding="10dp"
             android:layout_marginBottom="1dp">
             <TextView
                 android:layout_width="wrap_content"
@@ -1014,7 +1014,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="#ffffff"
-            android:padding="20dp"
+            android:padding="10dp"
             android:layout_marginBottom="1dp">
             <TextView
                 android:layout_width="wrap_content"
