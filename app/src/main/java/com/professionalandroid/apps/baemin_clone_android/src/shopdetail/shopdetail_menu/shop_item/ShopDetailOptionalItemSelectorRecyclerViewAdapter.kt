@@ -58,7 +58,6 @@ class ShopDetailOptionalItemSelectorRecyclerViewAdapter(): RecyclerView.Adapter<
                     if(!k){
                         tempShoppingList.add(OptionArray(groupIdx!!, mutableListOf(optionalItemIdx!!)))
                     }
-
                 }
                 else{
                     for(i in tempShoppingList){
@@ -107,4 +106,5 @@ class ShopDetailOptionalItemSelectorRecyclerViewAdapter(): RecyclerView.Adapter<
         holder.optionalItemPrice?.text = optionalItem[position]?.price.toString()
         holder.optionalItemIdx = optionalItem[position]?.optionIdx
     }
+
 }

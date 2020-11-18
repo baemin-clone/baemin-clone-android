@@ -69,11 +69,5 @@ class ApplicationClass : Application() {
                 .build()
             return retrofit
         }
-
-
-
     }
-
-
-
 }

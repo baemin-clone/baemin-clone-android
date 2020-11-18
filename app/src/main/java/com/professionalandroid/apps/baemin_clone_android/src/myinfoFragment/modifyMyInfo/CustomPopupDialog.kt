@@ -42,6 +42,4 @@ class CustomPopupDialog(context: Context, customDialogClickListener: CustomDialo
         }
 
     }
-
-
 }

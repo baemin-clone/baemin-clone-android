@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.appbar.AppBarLayout
 import com.professionalandroid.apps.baemin_clone_android.*
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCart
@@ -37,7 +38,7 @@ class ShopDetailItemFragment(val mlistener: ShopDetailItemFragment.ItemAdd) : Fr
     lateinit var mRequiredRecyclerViewAdapter: ShopDetailRequiredItemRecyclerViewAdapter
     lateinit var mOptionalRecyclerView: RecyclerView
     lateinit var mOptionalRecyclerViewAdapter: ShopDetailOptionalItemRecyclerViewAdapter
-    lateinit var mOptionalSelectorRecyclerView: RecyclerView
+    var title = ""
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -69,6 +70,21 @@ class ShopDetailItemFragment(val mlistener: ShopDetailItemFragment.ItemAdd) : Fr
 
         val shopidx = arguments?.getInt("shopidx", 0)
         val menuidx = arguments?.getInt("menuidx", 0)
+
+        var isShow = true
+        var scrollRange = -1
+        view.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { barLayout, verticalOffset ->
+            if (scrollRange == -1){
+                scrollRange = barLayout?.totalScrollRange!!
+            }
+            if (scrollRange + verticalOffset == 0){
+                view.shop_detail_main.text = title
+                isShow = true
+            } else if (isShow){
+                view.shop_detail_main.text = " " //careful there should a space between double quote otherwise it wont work
+                isShow = false
+            }
+        })
 
         mShopDetailItemService.shopDetailItem(menuidx!!)
 
@@ -114,10 +130,12 @@ class ShopDetailItemFragment(val mlistener: ShopDetailItemFragment.ItemAdd) : Fr
             .centerCrop()
             .into(shop_detail_item_img)
         shop_detail_item_title.text = body.result?.menuTitle
+        shop_detail_main.text = body.result?.menuTitle
         shop_detail_item_description.text = body.result?.details
         shep_detail_item_basic_price.text = body.result?.basicPrice.toString()
         shop_detail_item_total.text = body.result?.basicPrice.toString()
-        for(kind in body.result?.options!!){
+        title = body.result?.menuTitle!!
+        for(kind in body.result.options){
             if(kind.required!!){
                 requiredItem.add(kind)
             }
