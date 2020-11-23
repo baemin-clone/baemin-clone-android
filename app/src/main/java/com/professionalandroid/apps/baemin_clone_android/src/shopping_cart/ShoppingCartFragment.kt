@@ -1,35 +1,28 @@
 package com.professionalandroid.apps.baemin_clone_android.src.shopping_cart
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.MenuItem
 import com.professionalandroid.apps.baemin_clone_android.Order
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.ShoppingCart
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCart
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCartShopIdx
-import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
-import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.login_status
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity.Companion.shoppingCart
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity.Companion.shoppingCartShopIdx
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.interfaces.ShoppingCartFragmentView
-import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.models.OrderResponse
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.models.ShoppingCartItem
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.models.ShoppingCartItemResponse
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.models.ShoppingCartShopResponse
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.order.OrderFragment
 import kotlinx.android.synthetic.main.fragment_shopping_cart.*
 import kotlinx.android.synthetic.main.fragment_shopping_cart.view.*
-import kotlinx.android.synthetic.main.layout_shoppingcart_item.*
 
 class ShoppingCartFragment : Fragment(), ShoppingCartFragmentView, ShoppingCartRecyclerViewAdapter.OnButtonSelected {
 

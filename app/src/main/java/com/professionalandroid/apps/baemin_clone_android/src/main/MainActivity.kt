@@ -31,7 +31,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import com.professionalandroid.apps.baemin_clone_android.src.history.HistoryFragment
 import com.professionalandroid.apps.baemin_clone_android.R
 import com.professionalandroid.apps.baemin_clone_android.RecommendFragment
 import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Companion.X_ACCESS_TOKEN
@@ -39,8 +38,8 @@ import com.professionalandroid.apps.baemin_clone_android.src.ApplicationClass.Co
 import com.professionalandroid.apps.baemin_clone_android.src.GpsTracker
 import com.professionalandroid.apps.baemin_clone_android.src.bookmark.BookmarkFragment
 import com.professionalandroid.apps.baemin_clone_android.src.history.OrderHistoryFragment
-import com.professionalandroid.apps.baemin_clone_android.src.homeFragment.HomeFragment
-import com.professionalandroid.apps.baemin_clone_android.src.myinfoFragment.MyinfoFragment
+import com.professionalandroid.apps.baemin_clone_android.src.home.HomeFragment
+import com.professionalandroid.apps.baemin_clone_android.src.myinfo.MyinfoFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.text.SimpleDateFormat

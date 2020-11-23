@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.R
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.interfaces.ShopDetailMenuFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.models.Content
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.models.Menu

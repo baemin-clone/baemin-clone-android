@@ -54,7 +54,7 @@
 
 
         <activity
-            android:name=".src.Shoplist.ShoplistActivity"
+            android:name=".src.shoplist.ShoplistActivity"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_shoplist"></activity>
 

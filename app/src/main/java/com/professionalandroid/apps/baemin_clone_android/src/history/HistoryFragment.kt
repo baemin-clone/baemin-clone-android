@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.R
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.history.interfaces.HistoryFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.history.models.HistoryResponse
 import com.professionalandroid.apps.baemin_clone_android.src.history.models.Result

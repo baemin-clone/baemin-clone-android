@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#E5E5E5"
-    tools:context=".src.homeFragment.delivery.DeliveryFragment">
+    tools:context=".src.home.delivery.DeliveryFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

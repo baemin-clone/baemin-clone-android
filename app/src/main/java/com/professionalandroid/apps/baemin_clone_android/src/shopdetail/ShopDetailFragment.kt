@@ -3,15 +3,14 @@ package com.professionalandroid.apps.baemin_clone_android.src.shopdetail
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayout
 import com.professionalandroid.apps.baemin_clone_android.R
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity.Companion.shoppingCart
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity.Companion.shoppingCart
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.interfaces.ShopDetailFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.models.Result
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shodetail_review.ShopDetailReviewFragment
@@ -21,7 +20,6 @@ import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdeta
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_menu.shop_item.ShopDetailItemFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopdetail.shopdetail_visit.ShopDetailVisitFragment
 import com.professionalandroid.apps.baemin_clone_android.src.shopping_cart.ShoppingCartFragment
-import kotlinx.android.synthetic.main.activity_shoplist.*
 import kotlinx.android.synthetic.main.fragment_shop_detail.*
 import kotlinx.android.synthetic.main.fragment_shop_detail.view.*
 

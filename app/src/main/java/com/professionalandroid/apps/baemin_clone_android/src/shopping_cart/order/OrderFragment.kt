@@ -9,10 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.professionalandroid.apps.baemin_clone_android.R
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity
 import com.professionalandroid.apps.baemin_clone_android.src.main.MainActivity.Companion.user_address
-import kotlinx.android.synthetic.main.activity_shoplist.*
 import kotlinx.android.synthetic.main.fragment_order.view.*
 
 class OrderFragment : Fragment() {

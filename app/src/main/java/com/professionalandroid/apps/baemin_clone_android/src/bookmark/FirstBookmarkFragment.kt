@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.professionalandroid.apps.baemin_clone_android.R
-import com.professionalandroid.apps.baemin_clone_android.src.Shoplist.ShoplistActivity
+import com.professionalandroid.apps.baemin_clone_android.src.shoplist.ShoplistActivity
 import com.professionalandroid.apps.baemin_clone_android.src.bookmark.interfaces.FirstBookmarkFragmentView
 import com.professionalandroid.apps.baemin_clone_android.src.bookmark.models.BookmarkPageResponse
 import com.professionalandroid.apps.baemin_clone_android.src.bookmark.models.Result
